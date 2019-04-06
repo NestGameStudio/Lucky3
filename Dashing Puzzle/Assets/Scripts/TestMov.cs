@@ -14,6 +14,9 @@ public class TestMov : MonoBehaviour
 
     Rigidbody2D playerRB;
 
+    Vector3Int nextPosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +32,10 @@ public class TestMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3Int nextPosition = currentPlayerCellPosition;
+        nextPosition = spawnCellPosition;
 
         if (Input.GetKeyDown(KeyCode.W))
-        {
+        {          
             nextPosition += new Vector3Int(0, 1, 0);
         }
         else if (Input.GetKeyDown(KeyCode.S))
