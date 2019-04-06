@@ -36,19 +36,19 @@ public class TestMov : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {          
-            nextPosition += new Vector3Int(0, 1, 0);
+            nextPosition += new Vector3Int(0, 2, 0);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            nextPosition -= new Vector3Int(0, 1, 0);
+            nextPosition -= new Vector3Int(0, 2, 0);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            nextPosition -= new Vector3Int(1, 0, 0);
+            nextPosition -= new Vector3Int(2, 0, 0);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            nextPosition += new Vector3Int(1, 0, 0);
+            nextPosition += new Vector3Int(2, 0, 0);
         }
 
         // Checa se é um tile acessível para movimentação
