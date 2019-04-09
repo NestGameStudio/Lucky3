@@ -53,14 +53,14 @@ public class TestMov : MonoBehaviour
 
         // Checa se é um tile acessível para movimentação
         TileBase nextTile = Ground.GetTile(nextPosition);
-        Debug.Log(nextTile + " KD");
-        Debug.Log(nextPosition);
 
         currentPlayerCellPosition += nextPosition;
         currentPlayerPositionTileBase = nextTile;
         this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
-
-        
     }
+
+
+    void hahaha() { }
+
 
 }

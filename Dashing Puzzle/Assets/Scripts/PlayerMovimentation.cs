@@ -10,9 +10,11 @@ public class PlayerMovimentation : MonoBehaviour
 
     Vector3Int spawnCellPosition;
     Vector3Int currentPlayerCellPosition;
-    TileBase currentPlayerPositionTileBase;
+    TileBase currentPlayerTileBase;
 
     Rigidbody2D playerRB;
+
+    Vector3Int nextPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -29,51 +31,28 @@ public class PlayerMovimentation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Movimentação
-        if (Input.anyKeyDown)
-        {
-            PlayerMovement();
-        }
+        PlayerMovement();
     }
 
+    void PlayerMovement() {
 
-    // Movimentação
-    void PlayerMovement()
-    {
         Vector3Int nextPosition = currentPlayerCellPosition;
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
+        if (Input.GetKeyDown(KeyCode.W)) {
             nextPosition += new Vector3Int(0, 1, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
+        } else if (Input.GetKeyDown(KeyCode.S)) {
             nextPosition -= new Vector3Int(0, 1, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
+        } else if (Input.GetKeyDown(KeyCode.A)) {
             nextPosition -= new Vector3Int(1, 0, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
+        } else if (Input.GetKeyDown(KeyCode.D)) {
             nextPosition += new Vector3Int(1, 0, 0);
         }
 
-        // Checa se é um tile acessível para movimentação
-        TileBase nextTile = Ground.GetTile(nextPosition);
-        Debug.Log(nextTile + " KD");
-        Debug.Log(nextPosition);
-
-        if (Ground.HasTile(nextPosition))
-        {
-            Debug.Log("A");
-            currentPlayerCellPosition += nextPosition;
-            currentPlayerPositionTileBase = nextTile;
+        if (Ground.HasTile(nextPosition)) {
+            currentPlayerCellPosition = nextPosition;
+            currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
-        }
-        else
-        {
+        } else {
             Debug.Log("falsiane");
         }
     }
