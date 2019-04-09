@@ -6369,7 +6369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516259103
 GameObject:
@@ -7514,7 +7514,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130751509
 GameObject:
@@ -7694,8 +7694,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 1, y: -3, z: 0}
     second:
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileIndex: 12
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7952,13 +7952,13 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: e520715b46a997948bccbd89f72d778f, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 414187974e21ead4d9c1879dffd1b2f4, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3c9f3c8f33633d548b7ec8fce08090fb, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3f94cca250d621d44a9e73899eda218a, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 145f6b2bfd5319f44931ff83ae70a008, type: 2}
@@ -7995,13 +7995,13 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: c8d24f66f536a19429253e68bf901a20, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 0f3280b3b44af7e488858a06793bc5ff, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 403f16f30daf75e42b401c840501ab17, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e093f44fcf5137c439edd23c3d161117, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 96d8ca878c4ce334f824b691dd3ab986, type: 3}
