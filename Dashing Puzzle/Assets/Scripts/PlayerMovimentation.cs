@@ -8,7 +8,7 @@ public class PlayerMovimentation : MonoBehaviour
     // No futuro criar um array de grids para cada nivel, talvez em um script diferente
     public Grid TilemapGrid;
     public Tilemap Ground;
-    public Tilemap Obstaculos;
+    public Tilemap Obstacles;
     public Tilemap Enemies;
 
     public GameObject Spawn;
@@ -21,6 +21,8 @@ public class PlayerMovimentation : MonoBehaviour
     private TileBase currentPlayerTileBase;
 
     private Rigidbody2D playerRB;
+
+    private bool playerDied = false;
 
 
     // --------------------------- To do ------------------------
@@ -52,6 +54,7 @@ public class PlayerMovimentation : MonoBehaviour
     // Place enemy in spawn
     public void RespawnPlayer() {
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        //playerDied = false;
     }
 
     private void PlayerMovement() {
@@ -59,29 +62,22 @@ public class PlayerMovimentation : MonoBehaviour
         Vector3Int nextPosition = currentPlayerCellPosition;
 
         if (Input.GetKeyDown(KeyCode.W)) {
-
             nextPosition += new Vector3Int( 0, CanWalkSpaces(Vector3Int.up), 0);
 
         } else if (Input.GetKeyDown(KeyCode.S)) {
-
             nextPosition -= new Vector3Int( 0, CanWalkSpaces(Vector3Int.down), 0);
 
         } else if (Input.GetKeyDown(KeyCode.A)) {
-
             nextPosition -= new Vector3Int( CanWalkSpaces(Vector3Int.left), 0, 0);
 
         } else if (Input.GetKeyDown(KeyCode.D)) {
-
             nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
         }
 
-        // Check if tile is possible to walk and do the walk
-        if (Ground.HasTile(nextPosition)) {
+        if (!playerDied) {
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
-        } else {
-            Debug.Log("falsiane");
         }
     }
 
@@ -91,17 +87,30 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
-        if (Obstaculos.HasTile(currentPlayerCellPosition + dir)) {        // tem obstaculos 2 tiles a frente
-            //if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                 // tem inimigo 1 tile a frente - dead
+        if (Obstacles.HasTile(currentPlayerCellPosition + dir)) {                      // tem obstaculos 1 tiles a frente
+            return 0;
+        } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
+            if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                          // tem inimigo 1 tile a frente - dead
                 // kill player
-               // this.GetComponent<PlayerLifeControl>().KillPlayer();
-                //return 0;
-            //} else {
+                this.GetComponent<PlayerLifeControl>().KillPlayer();
+                Enemies.RefreshAllTiles();
+                //playerDied = true;
                 return 0;
-           // }
-        } else if (Obstaculos.HasTile(currentPlayerCellPosition + dir + dir)) {       // tem obstaculos 1 tiles a frente
-            return 1;
-        } else {                                                                // Não tem obstaculos a frente
+            } else {
+                return 1;
+            }
+
+        } else {                                                                        // Não tem obstaculos a frente
+            if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                          // tem inimigo 1 tile a frente - kill
+                // kill enemy
+                Enemies.SetTile(currentPlayerCellPosition + dir, null);
+            } else if (Enemies.HasTile(currentPlayerCellPosition + dir)) {
+                // kill player
+                this.GetComponent<PlayerLifeControl>().KillPlayer();
+                Enemies.RefreshAllTiles();
+                //playerDied = true;
+                return 0;
+            }
             return 2;
         }
 
