@@ -94,8 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TilemapGrid: {fileID: 0}
   Ground: {fileID: 0}
+  Obstaculos: {fileID: 0}
   Spawn: {fileID: 0}
+  WalkSpaces: 2
 --- !u!61 &1320478401052772670
 BoxCollider2D:
   m_ObjectHideFlags: 0
