@@ -9,10 +9,11 @@ public class PlayerMovimentation : MonoBehaviour
     public Grid TilemapGrid;
     public Tilemap Ground;
     public Tilemap Obstaculos;
+    public Tilemap Enemies;
 
     public GameObject Spawn;
 
-    // quantidade de tiles que o player anda por vez
+    // quantidade de tiles que o player anda por vez - não faz nada por enquanto
     public int WalkSpaces = 2;
 
     private Vector3Int spawnCellPosition;
@@ -22,8 +23,12 @@ public class PlayerMovimentation : MonoBehaviour
     private Rigidbody2D playerRB;
 
 
+    // --------------------------- To do ------------------------
     // Criar um script com as grid que separa a grid atual
-    // definir os obstaculos e nao deixar personagem passar
+    // Inimigos morrerem ou matarem
+    // Portinha
+
+
 
 
     // Start is called before the first frame update
@@ -44,7 +49,12 @@ public class PlayerMovimentation : MonoBehaviour
         PlayerMovement();
     }
 
-    void PlayerMovement() {
+    // Place enemy in spawn
+    public void RespawnPlayer() {
+        this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+    }
+
+    private void PlayerMovement() {
 
         Vector3Int nextPosition = currentPlayerCellPosition;
 
@@ -79,17 +89,23 @@ public class PlayerMovimentation : MonoBehaviour
     // Return 2 if the next two spaces in the desire direction are free or if there's a enemy in the first tile and nothing on the second
     // Return 1 if the second tile there's an obstacle and nothing on the first one
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
-    int CanWalkSpaces(Vector3Int dir) {
+    private int CanWalkSpaces(Vector3Int dir) {
 
-        if (Obstaculos.HasTile(currentPlayerCellPosition + dir + dir)) {        // tem obstaculos 2 tiles a frente
+        if (Obstaculos.HasTile(currentPlayerCellPosition + dir)) {        // tem obstaculos 2 tiles a frente
+            //if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                 // tem inimigo 1 tile a frente - dead
+                // kill player
+               // this.GetComponent<PlayerLifeControl>().KillPlayer();
+                //return 0;
+            //} else {
+                return 0;
+           // }
+        } else if (Obstaculos.HasTile(currentPlayerCellPosition + dir + dir)) {       // tem obstaculos 1 tiles a frente
             return 1;
-        } else if (Obstaculos.HasTile(currentPlayerCellPosition + dir)) {       // tem obstaculos 1 tiles a frente
-            return 0;
         } else {                                                                // Não tem obstaculos a frente
             return 2;
         }
 
     }
 
-
+    // mata 2 inimigos mas 1 mata ele, reinicia todos
 }
