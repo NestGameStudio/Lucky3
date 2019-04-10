@@ -6,15 +6,21 @@ using UnityEngine.Tilemaps;
 public class PlayerMovimentation : MonoBehaviour
 {
     // No futuro criar um array de grids para cada nivel, talvez em um script diferente
-    public Grid TilemapGrid;
+    /*public Grid TilemapGrid;
     public Tilemap Ground;
     public Tilemap Obstacles;
-    public Tilemap Enemies;
+    public Tilemap Enemies;*/
 
-    public GameObject Spawn;
+    //public GameObject Spawn;
 
     // quantidade de tiles que o player anda por vez - não faz nada por enquanto
     public int WalkSpaces = 2;
+
+    private Tilemap Ground;
+    private Tilemap Obstacles;
+    private Tilemap Doors;
+    private GameObject Enemies;
+    private GameObject Spawn;
 
     private Vector3Int spawnCellPosition;
     private Vector3Int currentPlayerCellPosition;
@@ -36,6 +42,12 @@ public class PlayerMovimentation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Ground = ChamberController.Instance.currentGroundTilemap;
+        Obstacles = ChamberController.Instance.currentObstaclesTilemap;
+        Doors = ChamberController.Instance.currentDoorTilemap;
+        Enemies = ChamberController.Instance.currentEnemies;
+        Spawn = ChamberController.Instance.currentSpawn;
+
         playerRB = this.GetComponent<Rigidbody2D>();
 
         // Inicia o jogador na posição de spawn
@@ -54,6 +66,16 @@ public class PlayerMovimentation : MonoBehaviour
     // Place enemy in spawn
     public void RespawnPlayer() {
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+
+        //reativa todos os inimigos mortos
+        foreach (Transform DeadEnemy in Enemies.GetComponentInChildren<Transform>(true)) {
+
+            if (!DeadEnemy.gameObject.activeSelf) {
+                DeadEnemy.gameObject.SetActive(true);
+            }
+        }
+
         //playerDied = false;
     }
 
@@ -87,30 +109,40 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
+        playerDied = false;
+
         if (Obstacles.HasTile(currentPlayerCellPosition + dir)) {                      // tem obstaculos 1 tiles a frente
             return 0;
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
-            if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                          // tem inimigo 1 tile a frente - dead
-                // kill player
-                this.GetComponent<PlayerLifeControl>().KillPlayer();
-                Enemies.RefreshAllTiles();
-                //playerDied = true;
-                return 0;
-            } else {
-                return 1;
+
+            foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
+                if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - dead
+
+                    this.GetComponent<PlayerLifeControl>().KillPlayer();
+                    playerDied = true;
+
+                    return 0;
+                }
             }
 
+            return 1;
+
         } else {                                                                        // Não tem obstaculos a frente
-            if (Enemies.HasTile(currentPlayerCellPosition + dir)) {                          // tem inimigo 1 tile a frente - kill
-                // kill enemy
-                Enemies.SetTile(currentPlayerCellPosition + dir, null);
-            } else if (Enemies.HasTile(currentPlayerCellPosition + dir)) {
-                // kill player
-                this.GetComponent<PlayerLifeControl>().KillPlayer();
-                Enemies.RefreshAllTiles();
-                //playerDied = true;
-                return 0;
+
+            foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
+                if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - kill
+
+                    enemy.gameObject.SetActive(false);
+
+                } else if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir + dir) {   // tem inimigo 2 tiles a frente - dead
+
+                    this.GetComponent<PlayerLifeControl>().KillPlayer();
+                    playerDied = true;
+
+                    return 0;
+                }
             }
+
             return 2;
         }
 

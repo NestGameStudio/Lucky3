@@ -95,11 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 0}
-  Ground: {fileID: 0}
-  Obstaculos: {fileID: 0}
-  Enemies: {fileID: 0}
-  Spawn: {fileID: 0}
   WalkSpaces: 2
 --- !u!114 &8205448450201892692
 MonoBehaviour:
@@ -113,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beba4fece11e1e74baec0b8f294c3c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifes: 99
 --- !u!61 &1320478401052772670
 BoxCollider2D:
   m_ObjectHideFlags: 0
