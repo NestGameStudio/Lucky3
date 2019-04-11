@@ -24,7 +24,6 @@ public class PlayerMovimentation : MonoBehaviour
 
     private bool playerDied = false;
 
-
     // --------------------------- To do ------------------------
     // Criar um script com as grid que separa a grid atual
     // Inimigos morrerem ou matarem
@@ -42,17 +41,27 @@ public class PlayerMovimentation : MonoBehaviour
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
 
-        currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);     
-    }
+        currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+}
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
         PlayerMovement();
+
+        //parte maluca do script by gadelha, depois será deletado
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
+            this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+
+            currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+        }
+        //fim da parte maluca
     }
 
-    // Place enemy in spawn
-    public void RespawnPlayer() {
+// Place enemy in spawn
+public void RespawnPlayer() {
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         //playerDied = false;
     }
@@ -115,6 +124,7 @@ public class PlayerMovimentation : MonoBehaviour
         }
 
     }
+ 
 
     // mata 2 inimigos mas 1 mata ele, reinicia todos
 }
