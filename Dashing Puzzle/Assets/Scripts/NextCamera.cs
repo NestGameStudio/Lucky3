@@ -6,17 +6,24 @@ using UnityEngine.UI;
 public class NextCamera : MonoBehaviour
 {
     [SerializeField] GameObject[] cameraPos;
+    [SerializeField] GameObject[] players;
+
     [SerializeField] Text textLevel;
-    int counter = 0;
+    int counter;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        updateText();
-        counter = 0;
+        for(int i = 0; i < players.Length; i++)
+        {
+            players[i+1].SetActive(false);
+        }
+        counter = 0;       
         
         this.transform.position = cameraPos[counter].transform.position;
+
+        updateText();
     }
 
     // Update is called once per frame
@@ -25,18 +32,27 @@ public class NextCamera : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.N))
         {
-            if(counter < 2)
+            if(counter < (cameraPos.Length-1))
             {
+                players[counter].SetActive(false);
                 counter++;
-            }            
-            this.transform.position = cameraPos[counter].transform.position;
-            updateText();
+                players[counter].SetActive(true);
+                this.transform.position = cameraPos[counter].transform.position;
+                updateText();
+            }         
+                
         }
         if (Input.GetKeyDown(KeyCode.P))
-        {            
-            this.transform.position = cameraPos[counter - 1].transform.position;
-            counter--;
-            updateText();
+        {
+            if (counter > 0)
+            {
+                players[counter].SetActive(false);
+                this.transform.position = cameraPos[counter - 1].transform.position;
+                counter--;
+                players[counter].SetActive(true);
+                updateText();
+            }
+            
         }
 
     }
