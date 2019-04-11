@@ -133,6 +133,7 @@ public class PlayerMovimentation : MonoBehaviour
                 if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - kill
 
                     enemy.gameObject.SetActive(false);
+                    ChamberController.Instance.CheckIfCanOpenDoor();
 
                 } else if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir + dir) {   // tem inimigo 2 tiles a frente - dead
 

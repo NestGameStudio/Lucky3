@@ -55,10 +55,27 @@ public class ChamberController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    // Chaamdo toda vez que se mata um inimigo
+    public void CheckIfCanOpenDoor() {
+
+        bool canOpenDoor = true;
+
+        foreach (Transform enemy in currentEnemies.GetComponentInChildren<Transform>()) {
+
+            if (enemy.gameObject.activeSelf) {
+                canOpenDoor = false;
+                break;
+            }
+        }
+
+        if (canOpenDoor) {
+            OpenDoor();
+        }
+
+    }
+
+    private void OpenDoor() {
+        Debug.Log("Abriu a porta");
     }
 
 }
