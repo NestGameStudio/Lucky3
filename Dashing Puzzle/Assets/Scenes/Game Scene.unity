@@ -277,6 +277,7 @@ Transform:
   m_LocalPosition: {x: 9.446048, y: -2.561524, z: -0.015625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 831646888}
   - {fileID: 2121298799}
   - {fileID: 1221524481}
   - {fileID: 1092302180}
@@ -610,7 +611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &309229475
 Transform:
   m_ObjectHideFlags: 0
@@ -623,7 +624,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 161585673}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &309229476
 MonoBehaviour:
@@ -637,11 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 1312440400}
-  Ground: {fileID: 1775562914}
-  Obstacles: {fileID: 1148222542}
-  Enemies: {fileID: 520451309}
-  Spawn: {fileID: 1661165626}
   WalkSpaces: 2
 --- !u!212 &309229477
 SpriteRenderer:
@@ -1997,6 +1993,90 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &531847248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 161585673}
+    m_Modifications:
+    - target: {fileID: 1320478401052772669, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.996048
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9715239
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.24716462
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c845f0bafff084bf4ae1e69737d1bad1, type: 3}
 --- !u!1 &627486394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,7 +2318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &798608061
 Transform:
   m_ObjectHideFlags: 0
@@ -2251,7 +2331,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 161585673}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798608062
 MonoBehaviour:
@@ -2265,11 +2345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 1312440400}
-  Ground: {fileID: 1845254155}
-  Obstacles: {fileID: 1734653959}
-  Enemies: {fileID: 1539128372}
-  Spawn: {fileID: 1188262876}
   WalkSpaces: 2
 --- !u!212 &798608063
 SpriteRenderer:
@@ -2505,6 +2580,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &831646888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2290165095758284740, guid: c845f0bafff084bf4ae1e69737d1bad1,
+    type: 3}
+  m_PrefabInstance: {fileID: 531847248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &879222416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
@@ -3821,7 +3902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1092302178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,11 +3915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 1312440400}
-  Ground: {fileID: 1070263473}
-  Obstacles: {fileID: 2082399630}
-  Enemies: {fileID: 1121901564}
-  Spawn: {fileID: 1204347200}
   WalkSpaces: 2
 --- !u!212 &1092302179
 SpriteRenderer:
@@ -3900,7 +3976,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 161585673}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121901561
 GameObject:
@@ -4683,23 +4759,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1188262876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
-    type: 3}
-  m_PrefabInstance: {fileID: 157123884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1188262878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
     type: 3}
   m_PrefabInstance: {fileID: 157123884}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1204347200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
-    type: 3}
-  m_PrefabInstance: {fileID: 515336664}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1221524477
 GameObject:
@@ -4718,7 +4782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1221524479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4731,11 +4795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 1312440400}
-  Ground: {fileID: 1058336033}
-  Obstacles: {fileID: 1411010710}
-  Enemies: {fileID: 1516259106}
-  Spawn: {fileID: 1972016934}
   WalkSpaces: 2
 --- !u!212 &1221524480
 SpriteRenderer:
@@ -4797,7 +4856,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 161585673}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312440399
 GameObject:
@@ -6000,12 +6059,6 @@ Transform:
   m_Father: {fileID: 1312440401}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1661165626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1972269774}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1661165627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
@@ -7132,12 +7185,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1743679536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
-    type: 3}
-  m_PrefabInstance: {fileID: 778135279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1743679538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
@@ -8797,12 +8844,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1972016934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
-    type: 3}
-  m_PrefabInstance: {fileID: 95027690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1972269774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9647,7 +9688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2121298798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9708,7 +9749,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 161585673}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2121298800
 MonoBehaviour:
@@ -9722,9 +9763,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e8d5dfcd8b04e3dbeaa53968912230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilemapGrid: {fileID: 1312440400}
-  Ground: {fileID: 365030046}
-  Obstacles: {fileID: 1709938727}
-  Enemies: {fileID: 1956126082}
-  Spawn: {fileID: 1743679536}
   WalkSpaces: 2

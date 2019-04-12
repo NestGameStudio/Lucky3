@@ -54,7 +54,9 @@ public class PlayerMovimentation : MonoBehaviour
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
 
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-}
+
+        ChamberController.Instance.CheckIfCanOpenDoor();
+    }
 
 // Update is called once per frame
 void Update()
@@ -134,6 +136,16 @@ public void RespawnPlayer() {
                 }
             }
 
+            foreach (Transform door in Doors.GetComponentInChildren<Transform>()) {
+                if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - dead
+
+                    Debug.Log("Passou pela portinha");
+
+                    NextCamera.Instance.change = true;
+                    return 0;
+                }
+            }
+
             return 1;
 
         } else {                                                                        // Não tem obstaculos a frente
@@ -150,6 +162,23 @@ public void RespawnPlayer() {
                     playerDied = true;
 
                     return 0;
+                }
+
+                foreach (Transform door in Doors.GetComponentInChildren<Transform>())
+                {
+                    Debug.Log("AAAA");
+                    if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir) {
+
+                        Debug.Log("Passou pela portinha");
+
+                        NextCamera.Instance.change = true;
+                        return 0;
+                    } else if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir + dir) {
+
+                        Debug.Log("Passou pela portinha");
+                        NextCamera.Instance.change = true;
+                        return 0;
+                    }
                 }
             }
 

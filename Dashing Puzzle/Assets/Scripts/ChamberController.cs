@@ -9,6 +9,8 @@ public class ChamberController : MonoBehaviour
 
     public static ChamberController instance;
 
+    public TileBase OpenDoorAsset;
+
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
     [HideInInspector] public Tilemap currentDoorTilemap;
@@ -75,6 +77,13 @@ public class ChamberController : MonoBehaviour
     }
 
     private void OpenDoor() {
+
+        foreach (TileBase tile in DoorsTilemaps[currentChamberNumber].GetTilesBlock(DoorsTilemaps[currentChamberNumber].cellBounds))
+        {
+
+            //DoorsTilemaps[currentChamberNumber].SetTile(tile)
+            Debug.Log(tile + "RPG");
+        }
         Debug.Log("Abriu a porta");
     }
 

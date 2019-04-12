@@ -11,6 +11,23 @@ public class NextCamera : MonoBehaviour
     [SerializeField] Text textLevel;
     int counter;
 
+    public bool change = false;
+
+    public static NextCamera instance;
+
+    public static NextCamera Instance { get { return instance; } }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +47,10 @@ public class NextCamera : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) || change)
         {
-            if(counter < (cameraPos.Length-1))
+            change = false;
+            if (counter < (cameraPos.Length-1))
             {
                 players[counter].SetActive(false);
                 counter++;
