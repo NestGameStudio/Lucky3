@@ -56,13 +56,13 @@ public class PlayerMovimentation : MonoBehaviour
         PlayerMovement();
 
         //parte maluca do script by gadelha, depois será deletado
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
             this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
 
             currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-        }
+        }*/
         //fim da parte maluca
     }
 
