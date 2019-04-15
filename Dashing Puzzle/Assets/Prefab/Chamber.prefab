@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8338354810745780096}
   - component: {fileID: 7976811321697334993}
   m_Layer: 0
-  m_Name: Tilemap-Door
+  m_Name: Tilemap-Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
         Ground = ChamberController.Instance.currentGroundTilemap;
 
         Vector3Int enemyPositionInCell = Ground.WorldToCell(this.transform.position);
-        this.transform.position = Ground.GetCellCenterWorld(enemyPositionInCell);
+        //this.transform.position = Ground.GetCellCenterWorld(enemyPositionInCell);
     }
 
     // Update is called once per frame
