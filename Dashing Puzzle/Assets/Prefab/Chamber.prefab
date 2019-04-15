@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5230997874632343984}
   m_Layer: 0
-  m_Name: Chamber 1
+  m_Name: Chamber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ Transform:
   m_Children:
   - {fileID: 2065860452062232134}
   - {fileID: 1569919340703592723}
+  - {fileID: 7193909226693184409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,7 +322,6 @@ Transform:
   - {fileID: 367758656945568703}
   - {fileID: 4654006625110507419}
   - {fileID: 4209072141597556355}
-  - {fileID: 7193909226693184409}
   m_Father: {fileID: 5230997874632343984}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -456,7 +456,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2065860452062232134}
+    m_TransformParent: {fileID: 5230997874632343984}
     m_Modifications:
     - target: {fileID: 6739099757981504394, guid: e4d25900975354c779064c1f91c4362f,
         type: 3}
@@ -501,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6483378351204670780, guid: e4d25900975354c779064c1f91c4362f,
         type: 3}
