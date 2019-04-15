@@ -30,14 +30,6 @@ public class PlayerMovimentation : MonoBehaviour
 
     private bool playerDied = false;
 
-    // --------------------------- To do ------------------------
-    // Criar um script com as grid que separa a grid atual
-    // Inimigos morrerem ou matarem
-    // Portinha
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,12 +46,12 @@ public class PlayerMovimentation : MonoBehaviour
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
 
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-
+        
         ChamberController.Instance.CheckIfCanOpenDoor();
     }
 
-// Update is called once per frame
-void Update()
+    // Update is called once per frame
+    void Update()
     {
         PlayerMovement();
 
@@ -86,8 +78,6 @@ public void RespawnPlayer() {
                 DeadEnemy.gameObject.SetActive(true);
             }
         }
-
-        //playerDied = false;
     }
 
     private void PlayerMovement() {
@@ -136,14 +126,12 @@ public void RespawnPlayer() {
                 }
             }
 
-            foreach (Transform door in Doors.GetComponentInChildren<Transform>()) {
-                if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - dead
+            if (Doors.HasTile(currentPlayerCellPosition + dir))
+            {
+                Debug.Log("Passou pela portinha");
 
-                    Debug.Log("Passou pela portinha");
-
-                    NextCamera.Instance.change = true;
-                    return 0;
-                }
+                NextCamera.Instance.change = true;
+                return 0;
             }
 
             return 1;
@@ -163,30 +151,24 @@ public void RespawnPlayer() {
 
                     return 0;
                 }
+            }
 
-                foreach (Transform door in Doors.GetComponentInChildren<Transform>())
-                {
-                    Debug.Log("AAAA");
-                    if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir) {
+            if (Doors.HasTile(currentPlayerCellPosition + dir))
+            {
+                Debug.Log("Passou pela portinha");
 
-                        Debug.Log("Passou pela portinha");
+                NextCamera.Instance.change = true;
+                return 0;
 
-                        NextCamera.Instance.change = true;
-                        return 0;
-                    } else if (Doors.WorldToCell(door.position) == currentPlayerCellPosition + dir + dir) {
-
-                        Debug.Log("Passou pela portinha");
-                        NextCamera.Instance.change = true;
-                        return 0;
-                    }
-                }
+            } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir))
+            {
+                Debug.Log("Passou pela portinha");
+                NextCamera.Instance.change = true;
+                return 0;
             }
 
             return 2;
         }
-
     }
- 
 
-    // mata 2 inimigos mas 1 mata ele, reinicia todos
 }

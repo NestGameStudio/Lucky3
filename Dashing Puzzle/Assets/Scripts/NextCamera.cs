@@ -34,7 +34,7 @@ public class NextCamera : MonoBehaviour
     {
         for(int i = 0; i < players.Length; i++)
         {
-            players[i+1].SetActive(false);
+            //players[i+1].SetActive(false);
         }
         counter = 0;       
         
