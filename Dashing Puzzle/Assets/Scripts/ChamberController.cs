@@ -11,19 +11,21 @@ public class ChamberController : MonoBehaviour
 
     public TileBase OpenDoorAsset;
 
-    public GameObject[] chamberCameras;
+    public GameObject Cam;
 
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
     [HideInInspector] public Tilemap currentDoorTilemap;
     [HideInInspector] public GameObject currentEnemies;
     [HideInInspector] public GameObject currentSpawn;
+    [HideInInspector] public GameObject currentCamera;
 
     private List<Tilemap> GroundTilemaps = new List<Tilemap>();
     private List<Tilemap> ObstaclesTilemaps = new List<Tilemap>();
     private List<Tilemap> DoorsTilemaps = new List<Tilemap>();
     private List<GameObject> Enemies = new List<GameObject>();
     private List<GameObject> Spawns = new List<GameObject>();
+    private List<GameObject> Camera = new List<GameObject>();
 
     private int currentChamberNumber = 0;
 
@@ -49,6 +51,7 @@ public class ChamberController : MonoBehaviour
             DoorsTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Doors").GetComponent<Tilemap>());
             Enemies.Add(ChambersInGame[i].Enemies);
             Spawns.Add(ChambersInGame[i].Spawn);
+            Camera.Add(ChambersInGame[i].Camera);
         }
 
         currentGroundTilemap = GroundTilemaps[currentChamberNumber];
@@ -56,6 +59,7 @@ public class ChamberController : MonoBehaviour
         currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
         currentEnemies = Enemies[currentChamberNumber];
         currentSpawn = Spawns[currentChamberNumber];
+        currentCamera = Camera[currentChamberNumber];
 
     }
 
@@ -66,15 +70,18 @@ public class ChamberController : MonoBehaviour
     {
         Debug.Log("Passou pela portinha");
 
+
         // Atualiza o current Chamber
         currentChamberNumber += 1;
-
+        
         currentGroundTilemap = GroundTilemaps[currentChamberNumber];
         currentObstaclesTilemap = ObstaclesTilemaps[currentChamberNumber];
         currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
         currentEnemies = Enemies[currentChamberNumber];
         currentSpawn = Spawns[currentChamberNumber];
+        currentCamera = Camera[currentChamberNumber];
 
+        Cam.transform.position = currentCamera.transform.position;
         //NextCamera.Instance.change = true;
 
     }

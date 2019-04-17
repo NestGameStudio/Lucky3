@@ -8,5 +8,5 @@ public class Chambers {
     public Grid ChamberGrid;
     public GameObject Enemies;
     public GameObject Spawn;
-
+    public GameObject Camera;
 }
