@@ -64,7 +64,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.87
+    value: 0.4
   threshold:
     overrideState: 1
     value: 0.83
@@ -182,7 +182,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
     value: 3
   tint:
     overrideState: 1
-    value: 0
+    value: 30
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
