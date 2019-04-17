@@ -24,7 +24,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         Ground = ChamberController.Instance.currentGroundTilemap;
         Obstacles = ChamberController.Instance.currentObstaclesTilemap;
         Doors = ChamberController.Instance.currentDoorTilemap;
@@ -35,10 +35,11 @@ public class PlayerMovimentation : MonoBehaviour
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
+
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
 
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-        
+
         ChamberController.Instance.CheckIfCanOpenDoor();
     }
 
@@ -46,10 +47,12 @@ public class PlayerMovimentation : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+
+        Debug.Log("Player POSICAO " + Ground.WorldToCell(this.transform.position));
     }
 
-// Place enemy in spawn
-public void RespawnPlayer() {
+    // Place enemy in spawn
+    public void RespawnPlayer() {
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 

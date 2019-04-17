@@ -106,16 +106,25 @@ public class ChamberController : MonoBehaviour
     }
 
     private void OpenDoor() {
-
+    
         // Abre as portas que estavam fechadas
-
-        foreach (TileBase tile in DoorsTilemaps[currentChamberNumber].GetTilesBlock(DoorsTilemaps[currentChamberNumber].cellBounds))
+        for (int n = DoorsTilemaps[currentChamberNumber].cellBounds.xMin; n < DoorsTilemaps[currentChamberNumber].cellBounds.xMax; n++)
         {
+            for (int p = DoorsTilemaps[currentChamberNumber].cellBounds.yMin; p < DoorsTilemaps[currentChamberNumber].cellBounds.yMax; p++)
+            {
+                Vector3Int localPlace = (new Vector3Int(n, p, (int)DoorsTilemaps[currentChamberNumber].transform.position.y));
+                
+                if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
+                {
+                    DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAsset);
+                    Debug.Log("Abriu a porta");
 
-            //DoorsTilemaps[currentChamberNumber].SetTile(tile)
-            Debug.Log(tile + "RPG");
+                } else {
+                    //No tile at "place"
+                }
+            }
         }
-        Debug.Log("Abriu a porta");
+
     }
 
 }
