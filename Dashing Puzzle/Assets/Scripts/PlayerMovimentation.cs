@@ -99,7 +99,7 @@ public void RespawnPlayer() {
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
 
             foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
-                if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - dead
+                if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
 
                     this.GetComponent<PlayerLifeControl>().KillPlayer();
                     playerDied = true;
@@ -120,12 +120,12 @@ public void RespawnPlayer() {
         } else {                                                                        // Não tem obstaculos a frente
 
             foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
-                if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - kill
+                if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - kill
 
                     enemy.gameObject.SetActive(false);
                     ChamberController.Instance.CheckIfCanOpenDoor();
 
-                } else if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir + dir) {   // tem inimigo 2 tiles a frente - dead
+                } else if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir + dir) && enemy.gameObject.activeSelf) {   // tem inimigo 2 tiles a frente - dead
 
                     this.GetComponent<PlayerLifeControl>().KillPlayer();
                     playerDied = true;
