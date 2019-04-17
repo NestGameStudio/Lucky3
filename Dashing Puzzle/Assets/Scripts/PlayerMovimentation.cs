@@ -4,15 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PlayerMovimentation : MonoBehaviour
-{
-    // No futuro criar um array de grids para cada nivel, talvez em um script diferente
-    /*public Grid TilemapGrid;
-    public Tilemap Ground;
-    public Tilemap Obstacles;
-    public Tilemap Enemies;*/
-
-    //public GameObject Spawn;
-
+{   
     // quantidade de tiles que o player anda por vez - não faz nada por enquanto
     public int WalkSpaces = 2;
 
@@ -54,16 +46,6 @@ public class PlayerMovimentation : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-
-        //parte maluca do script by gadelha, depois será deletado
-        /*if (Input.GetKeyDown(KeyCode.N))
-        {
-            spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
-            this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
-
-            currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-        }*/
-        //fim da parte maluca
     }
 
 // Place enemy in spawn
@@ -128,9 +110,8 @@ public void RespawnPlayer() {
 
             if (Doors.HasTile(currentPlayerCellPosition + dir))
             {
-                Debug.Log("Passou pela portinha");
-
-                NextCamera.Instance.change = true;
+                ChamberController.Instance.ChangeChamber();
+                updateChamber(); 
                 return 0;
             }
 
@@ -155,20 +136,35 @@ public void RespawnPlayer() {
 
             if (Doors.HasTile(currentPlayerCellPosition + dir))
             {
-                Debug.Log("Passou pela portinha");
-
-                NextCamera.Instance.change = true;
+                ChamberController.Instance.ChangeChamber();
+                updateChamber();
                 return 0;
 
             } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir))
             {
-                Debug.Log("Passou pela portinha");
-                NextCamera.Instance.change = true;
+                ChamberController.Instance.ChangeChamber();
+                updateChamber();
                 return 0;
             }
 
             return 2;
         }
+    }
+
+    private void updateChamber()
+    {
+        Ground = ChamberController.Instance.currentGroundTilemap;
+        Obstacles = ChamberController.Instance.currentObstaclesTilemap;
+        Doors = ChamberController.Instance.currentDoorTilemap;
+        Enemies = ChamberController.Instance.currentEnemies;
+        Spawn = ChamberController.Instance.currentSpawn;
+
+        // Inicia o jogador na posição de spawn
+        spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
+        this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+
+        ChamberController.Instance.CheckIfCanOpenDoor();
     }
 
 }

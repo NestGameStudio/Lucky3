@@ -11,6 +11,8 @@ public class ChamberController : MonoBehaviour
 
     public TileBase OpenDoorAsset;
 
+    public GameObject[] chamberCameras;
+
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
     [HideInInspector] public Tilemap currentDoorTilemap;
@@ -57,7 +59,27 @@ public class ChamberController : MonoBehaviour
 
     }
 
-    // Chaamdo toda vez que se mata um inimigo
+    // Troca a camera ativa, posiciona o player no próximo spawn
+    // Muda todo o current Chamber
+
+    public void ChangeChamber()
+    {
+        Debug.Log("Passou pela portinha");
+
+        // Atualiza o current Chamber
+        currentChamberNumber += 1;
+
+        currentGroundTilemap = GroundTilemaps[currentChamberNumber];
+        currentObstaclesTilemap = ObstaclesTilemaps[currentChamberNumber];
+        currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
+        currentEnemies = Enemies[currentChamberNumber];
+        currentSpawn = Spawns[currentChamberNumber];
+
+        //NextCamera.Instance.change = true;
+
+    }
+
+    // Chamando toda vez que se mata um inimigo
     public void CheckIfCanOpenDoor() {
 
         bool canOpenDoor = true;
@@ -77,6 +99,8 @@ public class ChamberController : MonoBehaviour
     }
 
     private void OpenDoor() {
+
+        // Abre as portas que estavam fechadas
 
         foreach (TileBase tile in DoorsTilemaps[currentChamberNumber].GetTilesBlock(DoorsTilemaps[currentChamberNumber].cellBounds))
         {
