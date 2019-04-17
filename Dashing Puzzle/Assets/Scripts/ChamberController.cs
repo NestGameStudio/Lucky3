@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class ChamberController : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class ChamberController : MonoBehaviour
 
     public static ChamberController instance;
 
+    [Space (10)]
     public TileBase OpenDoorAsset;
-
     public GameObject Cam;
+    public Text LevelText;
 
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
@@ -61,6 +63,8 @@ public class ChamberController : MonoBehaviour
         currentSpawn = Spawns[currentChamberNumber];
         currentCamera = Camera[currentChamberNumber];
 
+        LevelText.text = "Level " + (currentChamberNumber + 1);
+
     }
 
     // Troca a camera ativa, posiciona o player no próximo spawn
@@ -82,8 +86,8 @@ public class ChamberController : MonoBehaviour
         currentCamera = Camera[currentChamberNumber];
 
         Cam.transform.position = currentCamera.transform.position;
-        //NextCamera.Instance.change = true;
 
+        LevelText.text = "Level " + (currentChamberNumber + 1);
     }
 
     // Chamando toda vez que se mata um inimigo
@@ -119,8 +123,6 @@ public class ChamberController : MonoBehaviour
                     DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAsset);
                     Debug.Log("Abriu a porta");
 
-                } else {
-                    //No tile at "place"
                 }
             }
         }
