@@ -55,15 +55,6 @@ public class PlayerMovimentation : MonoBehaviour
     {
         PlayerMovement();
 
-        //parte maluca do script by gadelha, depois será deletado
-        /*if (Input.GetKeyDown(KeyCode.N))
-        {
-            spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
-            this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
-
-            currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-        }*/
-        //fim da parte maluca
     }
 
 // Place enemy in spawn
@@ -141,6 +132,7 @@ public void RespawnPlayer() {
             foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
                 if (Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) {        // tem inimigo 1 tile a frente - kill
 
+                    //acho que vamos ter que destruir o objeto, e nao so desativar. Re-instanciar ele depois?
                     enemy.gameObject.SetActive(false);
                     ChamberController.Instance.CheckIfCanOpenDoor();
 
