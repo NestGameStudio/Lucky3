@@ -23,7 +23,7 @@ public class PlayerLifeControl : MonoBehaviour
 
         lifes -= 1;
 
-        this.GetComponent<PlayerMovimentation>().RespawnPlayer();
+        this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
     }
 
 }

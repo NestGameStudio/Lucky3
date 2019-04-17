@@ -38,7 +38,7 @@ public class NextCamera : MonoBehaviour
         }
         counter = 0;       
         
-        this.transform.position = cameraPos[counter].transform.position;
+//        this.transform.position = cameraPos[counter].transform.position;
 
         updateText();
     }

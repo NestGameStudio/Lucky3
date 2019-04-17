@@ -21,6 +21,8 @@ public class PlayerMovimentation : MonoBehaviour
     private Rigidbody2D playerRB;
 
     private bool playerDied = false;
+    private bool playerChangedLevel = false;
+    private bool playerWalked = false;  // anda apenas quando faz input
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +37,7 @@ public class PlayerMovimentation : MonoBehaviour
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
-
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
-
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 
         ChamberController.Instance.CheckIfCanOpenDoor();
@@ -47,15 +47,14 @@ public class PlayerMovimentation : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-
-        Debug.Log("Player POSICAO " + Ground.WorldToCell(this.transform.position));
     }
 
     // Place enemy in spawn
-    public void RespawnPlayer() {
+    public void RespawnPlayerAfterDeath() {
+    
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
-
+        
         //reativa todos os inimigos mortos
         foreach (Transform DeadEnemy in Enemies.GetComponentInChildren<Transform>(true)) {
 
@@ -82,7 +81,10 @@ public class PlayerMovimentation : MonoBehaviour
             nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
         }
 
-        if (!playerDied) {
+        // can walk
+        if (!playerDied && !playerChangedLevel && playerWalked) {
+
+            playerWalked = false;
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
@@ -95,7 +97,9 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
+        playerWalked = true;
         playerDied = false;
+        playerChangedLevel = false;
 
         if (Obstacles.HasTile(currentPlayerCellPosition + dir)) {                      // tem obstaculos 1 tiles a frente
             return 0;
@@ -114,7 +118,9 @@ public class PlayerMovimentation : MonoBehaviour
             if (Doors.HasTile(currentPlayerCellPosition + dir))
             {
                 ChamberController.Instance.ChangeChamber();
-                updateChamber(); 
+                updateChamber();
+                playerChangedLevel = true;
+
                 return 0;
             }
 
@@ -141,12 +147,16 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 ChamberController.Instance.ChangeChamber();
                 updateChamber();
+                playerChangedLevel = true;
+
                 return 0;
 
             } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir))
             {
                 ChamberController.Instance.ChangeChamber();
                 updateChamber();
+                playerChangedLevel = true;
+
                 return 0;
             }
 
