@@ -38,8 +38,6 @@ public class TimeRushController : MonoBehaviour
         currentLevel = ChamberController.Instance.currentChamberNumber + 1;
 
         LittleBar.value = (float) (currentLevel) / (float)(ChamberController.Instance.ChambersInGame.Length);
-        Debug.Log("Preenche ae 1 " + currentLevel);
-        Debug.Log("Preenche ae 2 " + ChamberController.Instance.ChambersInGame.Length);
     }
 
 }

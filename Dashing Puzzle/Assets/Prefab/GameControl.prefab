@@ -80,6 +80,8 @@ MonoBehaviour:
   OpenDoorAsset: {fileID: 11400000, guid: 57085a50efdeb7e4ba007cc97e231381, type: 2}
   Cam: {fileID: 0}
   LevelText: {fileID: 0}
+  doorIsOpen: 0
+  currentChamberNumber: 0
   currentGroundTilemap: {fileID: 0}
   currentObstaclesTilemap: {fileID: 0}
   currentDoorTilemap: {fileID: 0}
@@ -98,3 +100,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4f95973eaf944fa933ba48e20ac556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LittleBar: {fileID: 0}
