@@ -155,7 +155,7 @@ public class PlayerMovimentation : MonoBehaviour
 
                 return 0;
 
-            } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir) && ChamberController.Instance.doorIsOpen)
+            } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir))
             {
                 if (ChamberController.Instance.doorIsOpen) {
                     ChamberController.Instance.ChangeChamber();
