@@ -89,7 +89,8 @@ public class ChamberController : MonoBehaviour
 
         LevelText.text = "Level " + (currentChamberNumber + 1);
 
-        TimeRushController.Instance.FillBar();
+        // coloca o pin de posicão do player
+        //TimeRushController.Instance.PlayerCompletionPosition();
     }
 
     // Chamando toda vez que se mata um inimigo
@@ -124,8 +125,6 @@ public class ChamberController : MonoBehaviour
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 {
                     DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAsset);
-                    Debug.Log("Abriu a porta");
-
                 }
             }
         }

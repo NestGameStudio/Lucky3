@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +7,10 @@ public class TimeRushController : MonoBehaviour
     public static TimeRushController instance;
 
     public Slider LittleBar;
+    public float SecondsToCompletion = 60;
 
     private int currentLevel;
-
-    // Preencher a barrinha de tempo
-    // Pegar a pocentagem da posicao do player nos levels, atualizar por level se possivel atualizar no update
-    // pegar numero de levels e trabalhar a completude deles em porcentagem, se possivel ver a 
-    // distancia do player da porta que leva ao final do jogo e ver a porcentagem
-    // dele conforme a aproximacao dessa porta
-    // pegar numero de levels
-    // pegar posicao do player
-
-    // tempo dinamico, quanto mais rapido ele avanca, mais rapido o tempo avanca
+    private float currentTime = 0;
 
     public static TimeRushController Instance { get { return instance; } }
 
@@ -31,13 +22,25 @@ public class TimeRushController : MonoBehaviour
             instance = this;
         }
 
+        StartCoroutine(FillTheBar());
     }
 
-    public void FillBar()
+    // Percentage of player completion within the map
+    public void PlayerCompletionPosition()
     {
         currentLevel = ChamberController.Instance.currentChamberNumber + 1;
 
         LittleBar.value = (float) (currentLevel) / (float)(ChamberController.Instance.ChambersInGame.Length);
     }
 
+    IEnumerator FillTheBar()
+    {
+        while(currentTime < SecondsToCompletion) {
+            currentTime += 1;
+            LittleBar.value = currentTime / SecondsToCompletion;
+            yield return new WaitForSeconds(1);
+        }
+
+        SceneController.Instance.LoadLoseScene();
+    }
 }
