@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6690567784400442108}
   - component: {fileID: 2332597343454055898}
   - component: {fileID: 5097982577833533751}
+  - component: {fileID: 5384924436865041506}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -53,30 +54,6 @@ MonoBehaviour:
     Enemies: {fileID: 0}
     Spawn: {fileID: 0}
     Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
-  - ChamberGrid: {fileID: 0}
-    Enemies: {fileID: 0}
-    Spawn: {fileID: 0}
-    Camera: {fileID: 0}
   OpenDoorAsset: {fileID: 11400000, guid: 57085a50efdeb7e4ba007cc97e231381, type: 2}
   Cam: {fileID: 0}
   LevelText: {fileID: 0}
@@ -101,3 +78,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LittleBar: {fileID: 0}
+  SecondsToCompletion: 60
+--- !u!114 &5384924436865041506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582615830111219522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5e1df2350834abb95a8c83c1cf692e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
