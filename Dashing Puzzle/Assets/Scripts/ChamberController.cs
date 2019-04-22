@@ -15,6 +15,7 @@ public class ChamberController : MonoBehaviour
     public GameObject Cam;
     public Text LevelText;
 
+    [HideInInspector] public bool doorIsOpen = false;
     [HideInInspector] public int currentChamberNumber = 0;
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
@@ -108,6 +109,7 @@ public class ChamberController : MonoBehaviour
             OpenDoor();
         }
 
+        doorIsOpen = canOpenDoor;
     }
 
     private void OpenDoor() {

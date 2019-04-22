@@ -115,11 +115,13 @@ public class PlayerMovimentation : MonoBehaviour
                 }
             }
 
-            if (Doors.HasTile(currentPlayerCellPosition + dir))
+            if (Doors.HasTile(currentPlayerCellPosition + dir) && ChamberController.Instance.doorIsOpen)
             {
-                ChamberController.Instance.ChangeChamber();
-                updateChamber();
-                playerChangedLevel = true;
+                if (ChamberController.Instance.doorIsOpen) {
+                    ChamberController.Instance.ChangeChamber();
+                    updateChamber();
+                    playerChangedLevel = true;
+                }
 
                 return 0;
             }
@@ -145,19 +147,24 @@ public class PlayerMovimentation : MonoBehaviour
 
             if (Doors.HasTile(currentPlayerCellPosition + dir))
             {
-                ChamberController.Instance.ChangeChamber();
-                updateChamber();
-                playerChangedLevel = true;
+                if (ChamberController.Instance.doorIsOpen) {
+                    ChamberController.Instance.ChangeChamber();
+                    updateChamber();
+                    playerChangedLevel = true;
+                }
 
                 return 0;
 
-            } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir))
+            } else if (Doors.HasTile(currentPlayerCellPosition + dir + dir) && ChamberController.Instance.doorIsOpen)
             {
-                ChamberController.Instance.ChangeChamber();
-                updateChamber();
-                playerChangedLevel = true;
+                if (ChamberController.Instance.doorIsOpen) {
+                    ChamberController.Instance.ChangeChamber();
+                    updateChamber();
+                    playerChangedLevel = true;
 
-                return 0;
+                }
+
+                return 1;
             }
 
             return 2;
