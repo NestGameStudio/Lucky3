@@ -2570,6 +2570,12 @@ Grid:
     type: 3}
   m_PrefabInstance: {fileID: 1355990668}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &106925035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051139302485298297, guid: 769a661535ea8464595afb60fd075d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 449280918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &152704873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12736,6 +12742,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 33220580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153649571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3042206617018907002, guid: 769a661535ea8464595afb60fd075d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 449280918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1168035280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8326369808306871605, guid: 092e73088dc9264489012412d80eda78,
@@ -12898,6 +12910,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!156049354 &1260250722 stripped
+Grid:
+  m_CorrespondingSourceObject: {fileID: 5232527517335003548, guid: 769a661535ea8464595afb60fd075d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 449280918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1276363120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8770643904077978954, guid: 79ad7e73375a0c144a6514ff0b3e5ed9,
@@ -18842,7 +18860,7 @@ PrefabInstance:
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
@@ -19035,6 +19053,26 @@ PrefabInstance:
       propertyPath: ChambersInGame.Array.data[7].Camera
       value: 
       objectReference: {fileID: 805273298}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: ChambersInGame.Array.data[8].ChamberGrid
+      value: 
+      objectReference: {fileID: 1260250722}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: ChambersInGame.Array.data[8].Enemies
+      value: 
+      objectReference: {fileID: 1772363925}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: ChambersInGame.Array.data[8].Spawn
+      value: 
+      objectReference: {fileID: 1153649571}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: ChambersInGame.Array.data[8].Camera
+      value: 
+      objectReference: {fileID: 106925035}
     - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: LittleBar
@@ -21161,6 +21199,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c7b0e1f22cc5d45bb5771fc523882c, type: 3}
+--- !u!1 &1772363925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5590205158780811138, guid: 769a661535ea8464595afb60fd075d82,
+    type: 3}
+  m_PrefabInstance: {fileID: 449280918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889579386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7334900703365947213, guid: 3c3196632aa962a499d06c23e8070fad,
