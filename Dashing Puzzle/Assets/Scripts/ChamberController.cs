@@ -15,6 +15,7 @@ public class ChamberController : MonoBehaviour
     public GameObject Cam;
     public Text LevelText;
 
+    [HideInInspector] public int currentChamberNumber = 0;
     [HideInInspector] public Tilemap currentGroundTilemap;
     [HideInInspector] public Tilemap currentObstaclesTilemap;
     [HideInInspector] public Tilemap currentDoorTilemap;
@@ -28,9 +29,7 @@ public class ChamberController : MonoBehaviour
     private List<GameObject> Enemies = new List<GameObject>();
     private List<GameObject> Spawns = new List<GameObject>();
     private List<GameObject> Camera = new List<GameObject>();
-
-    private int currentChamberNumber = 0;
-
+    
     public static ChamberController Instance { get { return instance; } }
 
     private void Awake() {
@@ -88,6 +87,8 @@ public class ChamberController : MonoBehaviour
         Cam.transform.position = currentCamera.transform.position;
 
         LevelText.text = "Level " + (currentChamberNumber + 1);
+
+        TimeRushController.Instance.FillBar();
     }
 
     // Chamando toda vez que se mata um inimigo

@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeRushController : MonoBehaviour
 {
+    public static TimeRushController instance;
+
+    public Slider LittleBar;
+
+    private int currentLevel;
+
     // Preencher a barrinha de tempo
     // Pegar a pocentagem da posicao do player nos levels, atualizar por level se possivel atualizar no update
     // pegar numero de levels e trabalhar a completude deles em porcentagem, se possivel ver a 
@@ -12,15 +19,27 @@ public class TimeRushController : MonoBehaviour
     // pegar numero de levels
     // pegar posicao do player
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    // tempo dinamico, quanto mais rapido ele avanca, mais rapido o tempo avanca
+
+    public static TimeRushController Instance { get { return instance; } }
+
+    private void Awake() {
+
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            instance = this;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FillBar()
     {
-        
+        currentLevel = ChamberController.Instance.currentChamberNumber + 1;
+
+        LittleBar.value = (float) (currentLevel) / (float)(ChamberController.Instance.ChambersInGame.Length);
+        Debug.Log("Preenche ae 1 " + currentLevel);
+        Debug.Log("Preenche ae 2 " + ChamberController.Instance.ChambersInGame.Length);
     }
+
 }
