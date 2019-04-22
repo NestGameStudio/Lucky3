@@ -9462,6 +9462,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1757866029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &729600793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1050711253689520202, guid: 8b38ab5bdce7dd34e8e8ea1c3479f221,
+    type: 3}
+  m_PrefabInstance: {fileID: 956055084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &730710022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9802,7 +9808,7 @@ PrefabInstance:
     - target: {fileID: 786829855198076668, guid: 8b38ab5bdce7dd34e8e8ea1c3479f221,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.68
+      value: -3.59
       objectReference: {fileID: 0}
     - target: {fileID: 786829855198076668, guid: 8b38ab5bdce7dd34e8e8ea1c3479f221,
         type: 3}
@@ -12474,7 +12480,7 @@ PrefabInstance:
     - target: {fileID: 8280722537469843415, guid: 4a93d9967d0c3ee429400e7c0bfd305d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.51
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 8280722537469843415, guid: 4a93d9967d0c3ee429400e7c0bfd305d,
         type: 3}
@@ -18648,17 +18654,17 @@ PrefabInstance:
         type: 3}
       propertyPath: ChambersInGame.Array.data[5].ChamberGrid
       value: 
-      objectReference: {fileID: 1732575215}
+      objectReference: {fileID: 1423893317}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[5].Enemies
       value: 
-      objectReference: {fileID: 2025963481}
+      objectReference: {fileID: 328142817}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[5].Spawn
       value: 
-      objectReference: {fileID: 1343682484}
+      objectReference: {fileID: 729600793}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[5].Camera
@@ -18668,12 +18674,12 @@ PrefabInstance:
         type: 3}
       propertyPath: ChambersInGame.Array.data[6].ChamberGrid
       value: 
-      objectReference: {fileID: 1423893317}
+      objectReference: {fileID: 1732575215}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[6].Enemies
       value: 
-      objectReference: {fileID: 328142817}
+      objectReference: {fileID: 2025963481}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[6].Spawn
