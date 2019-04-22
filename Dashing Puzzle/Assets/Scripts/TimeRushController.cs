@@ -7,8 +7,7 @@ public class TimeRushController : MonoBehaviour
 {
     public static TimeRushController instance;
 
-
-    public Image LittleBar;
+    public Slider LittleBar;
 
     private int currentLevel;
 
@@ -24,15 +23,23 @@ public class TimeRushController : MonoBehaviour
 
     public static TimeRushController Instance { get { return instance; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentLevel = ChamberController.Instance.currentChamberNumber;
+    private void Awake() {
+
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            instance = this;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FillBar()
     {
-        
+        currentLevel = ChamberController.Instance.currentChamberNumber + 1;
+
+        LittleBar.value = (float) (currentLevel) / (float)(ChamberController.Instance.ChambersInGame.Length);
+        Debug.Log("Preenche ae 1 " + currentLevel);
+        Debug.Log("Preenche ae 2 " + ChamberController.Instance.ChambersInGame.Length);
     }
+
 }

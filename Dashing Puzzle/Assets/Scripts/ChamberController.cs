@@ -87,6 +87,8 @@ public class ChamberController : MonoBehaviour
         Cam.transform.position = currentCamera.transform.position;
 
         LevelText.text = "Level " + (currentChamberNumber + 1);
+
+        TimeRushController.Instance.FillBar();
     }
 
     // Chamando toda vez que se mata um inimigo
