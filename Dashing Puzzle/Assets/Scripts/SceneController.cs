@@ -21,12 +21,11 @@ public class SceneController : MonoBehaviour
 
     public void LoadLoseScene()
     {
-        Debug.Log("Perdeu");
+        SceneManager.LoadScene("Defeat");
     }
 
     public void LoadWinScene()
     {
-        Debug.Log("Venceu");
+        SceneManager.LoadScene("Victory");
     }
-
 }

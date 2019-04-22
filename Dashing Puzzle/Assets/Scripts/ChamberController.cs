@@ -77,7 +77,13 @@ public class ChamberController : MonoBehaviour
 
         // Atualiza o current Chamber
         currentChamberNumber += 1;
-        
+
+        if (currentChamberNumber + 1 > ChambersInGame.Length)
+        {
+            SceneController.Instance.LoadWinScene();
+            return;
+        }
+
         currentGroundTilemap = GroundTilemaps[currentChamberNumber];
         currentObstaclesTilemap = ObstaclesTilemaps[currentChamberNumber];
         currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
