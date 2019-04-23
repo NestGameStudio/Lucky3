@@ -9,8 +9,8 @@ public class TimeRushController : MonoBehaviour
     public Slider LittleBar;
     public float SecondsToCompletion = 60;
 
-    private int currentLevel;
-    private float currentTime = 0;
+    private float currentLevel;
+    public float currentTime = 0;
 
     public static TimeRushController Instance { get { return instance; } }
 
