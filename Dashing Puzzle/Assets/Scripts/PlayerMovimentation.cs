@@ -7,6 +7,7 @@ public class PlayerMovimentation : MonoBehaviour
 {   
     // quantidade de tiles que o player anda por vez - não faz nada por enquanto
     public int WalkSpaces = 2;
+    public float Velocity = 2;
 
     private Tilemap Ground;
     private Tilemap Obstacles;
@@ -22,7 +23,6 @@ public class PlayerMovimentation : MonoBehaviour
 
     private bool playerDied = false;
     private bool playerChangedLevel = false;
-    private bool playerWalked = false;  // anda apenas quando faz input
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     // Place enemy in spawn
     public void RespawnPlayerAfterDeath() {
-    
+
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
         
@@ -82,12 +82,11 @@ public class PlayerMovimentation : MonoBehaviour
         }
 
         // can walk
-        if (!playerDied && !playerChangedLevel && playerWalked) {
+        if (!playerDied && !playerChangedLevel) {
 
-            playerWalked = false;
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
-            this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentPlayerCellPosition), Velocity * Time.deltaTime);
         }
     }
 
@@ -97,7 +96,6 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
-        playerWalked = true;
         playerDied = false;
         playerChangedLevel = false;
 
