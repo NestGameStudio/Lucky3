@@ -47,6 +47,10 @@ public class PlayerMovimentation : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            RespawnPlayerAfterDeath();
+        }
     }
 
     // Place enemy in spawn

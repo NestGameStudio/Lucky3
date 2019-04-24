@@ -123,10 +123,15 @@ public class ChamberController : MonoBehaviour
         {
             for (int p = DoorsTilemaps[currentChamberNumber].cellBounds.yMin; p < DoorsTilemaps[currentChamberNumber].cellBounds.yMax; p++)
             {
+                Debug.Log("pq vc nao acha o asset da mibha porta " + currentChamberNumber + "TILES");
+
                 Vector3Int localPlace = (new Vector3Int(n, p, (int)DoorsTilemaps[currentChamberNumber].transform.position.y));
-                
+
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 {
+                    Debug.Log("abriu minha portinha");
+
+
                     DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAsset);
                 }
             }

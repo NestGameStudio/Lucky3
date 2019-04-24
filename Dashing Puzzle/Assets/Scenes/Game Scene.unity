@@ -8596,7 +8596,7 @@ Camera:
   far clip plane: 1000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.6
+  orthographic size: 5.166667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19108,6 +19108,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8076370498183243480, guid: ab8329d86d61e9d4e9d563fb8fed32a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab8329d86d61e9d4e9d563fb8fed32a4, type: 3}
 --- !u!1001 &1120334491
@@ -19537,7 +19542,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 5.6
+    OrthographicSize: 5.166667
     NearClipPlane: 0.1
     FarClipPlane: 1000
     Dutch: 0
@@ -35096,6 +35101,16 @@ PrefabInstance:
     - target: {fileID: 1966362929633575873, guid: b8417a7393320bb47ace640f43a3c8b7,
         type: 3}
       propertyPath: m_Tiles.Array.data[37].second.m_ColliderType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346139672345574477, guid: b8417a7393320bb47ace640f43a3c8b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289316620541735496, guid: b8417a7393320bb47ace640f43a3c8b7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7483301550013315927, guid: b8417a7393320bb47ace640f43a3c8b7,
