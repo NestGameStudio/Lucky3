@@ -23,17 +23,17 @@ public class PlayerLifeControl : MonoBehaviour
 
         //ativa anim de morte
         StartCoroutine(deathAnim());
-
-        lifes -= 1;
-
-        this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
     }
     private IEnumerator deathAnim()
     {
         gameObject.GetComponent<PlayerMovimentation>().enabled = false;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("death");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         gameObject.GetComponent<PlayerMovimentation>().enabled = true;
+
+        lifes -= 1;
+
+        this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
 
     }
 

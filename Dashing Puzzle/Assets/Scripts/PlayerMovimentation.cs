@@ -51,8 +51,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     // Place enemy in spawn
     public void RespawnPlayerAfterDeath() {
-
-
+    
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
         
@@ -187,5 +186,5 @@ public class PlayerMovimentation : MonoBehaviour
 
         ChamberController.Instance.CheckIfCanOpenDoor();
     }
-    
+
 }

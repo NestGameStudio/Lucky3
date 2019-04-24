@@ -72,9 +72,6 @@ public class ChamberController : MonoBehaviour
 
     public void ChangeChamber()
     {
-        Debug.Log("Passou pela portinha");
-
-
         // Atualiza o current Chamber
         currentChamberNumber += 1;
 
