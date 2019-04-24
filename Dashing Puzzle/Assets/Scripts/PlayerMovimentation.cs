@@ -7,6 +7,7 @@ public class PlayerMovimentation : MonoBehaviour
 {   
     // quantidade de tiles que o player anda por vez - não faz nada por enquanto
     public int WalkSpaces = 2;
+    public float Velocity = 2;
 
     private Tilemap Ground;
     private Tilemap Obstacles;
@@ -38,7 +39,10 @@ public class PlayerMovimentation : MonoBehaviour
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
         playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
+        //playerRB.MovePosition(Vector3.Lerp(playerRB.position, Ground.GetCellCenterWorld(spawnCellPosition), Time.deltaTime * Velocity));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+
+
 
         ChamberController.Instance.CheckIfCanOpenDoor();
     }
@@ -53,6 +57,7 @@ public class PlayerMovimentation : MonoBehaviour
     public void RespawnPlayerAfterDeath() {
 
         playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
+        //playerRB.MovePosition(Vector3.Lerp(playerRB.position, Ground.GetCellCenterWorld(spawnCellPosition), Time.deltaTime * Velocity));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
         
         //reativa todos os inimigos mortos
@@ -88,6 +93,7 @@ public class PlayerMovimentation : MonoBehaviour
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             playerRB.MovePosition(Ground.GetCellCenterWorld(currentPlayerCellPosition));
+            //playerRB.MovePosition(Vector3.Lerp(playerRB.position, Ground.GetCellCenterWorld(currentPlayerCellPosition), Time.deltaTime * Velocity));
         }
     }
 
@@ -181,6 +187,7 @@ public class PlayerMovimentation : MonoBehaviour
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
+       //playerRB.MovePosition(Vector3.Lerp(playerRB.position, Ground.GetCellCenterWorld(spawnCellPosition), Time.deltaTime * Velocity));
         playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 
