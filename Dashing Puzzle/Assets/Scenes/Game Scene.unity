@@ -8596,7 +8596,7 @@ Camera:
   far clip plane: 1000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.166667
+  orthographic size: 5.933333
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19542,7 +19542,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 5.166667
+    OrthographicSize: 5.933333
     NearClipPlane: 0.1
     FarClipPlane: 1000
     Dutch: 0
@@ -28651,16 +28651,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
-      propertyPath: ChambersInGame.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: chamberCameras.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
       propertyPath: ChambersInGame.Array.data[0].ChamberGrid
       value: 
       objectReference: {fileID: 696652469}
@@ -28676,10 +28666,9 @@ PrefabInstance:
       objectReference: {fileID: 805028251}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
-      propertyPath: OpenDoorAsset
+      propertyPath: ChambersInGame.Array.data[0].Camera
       value: 
-      objectReference: {fileID: 11400000, guid: 57085a50efdeb7e4ba007cc97e231381,
-        type: 2}
+      objectReference: {fileID: 37396453}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[1].ChamberGrid
@@ -28697,29 +28686,9 @@ PrefabInstance:
       objectReference: {fileID: 266299686}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
-      propertyPath: chamberCameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: chamberCameras.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: ChambersInGame.Array.data[0].Camera
-      value: 
-      objectReference: {fileID: 37396453}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
       propertyPath: ChambersInGame.Array.data[1].Camera
       value: 
       objectReference: {fileID: 1317058323}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: Cam
-      value: 
-      objectReference: {fileID: 1243655638}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[2].ChamberGrid
@@ -28760,11 +28729,6 @@ PrefabInstance:
       propertyPath: ChambersInGame.Array.data[3].Camera
       value: 
       objectReference: {fileID: 1081469037}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: LevelText
-      value: 
-      objectReference: {fileID: 1221151628}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[4].ChamberGrid
@@ -28985,16 +28949,33 @@ PrefabInstance:
       propertyPath: ChambersInGame.Array.data[14].Camera
       value: 
       objectReference: {fileID: 1196643753}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 1243655638}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: LevelText
+      value: 
+      objectReference: {fileID: 1221151628}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: OpenDoorAssetRight
+      value: 
+      objectReference: {fileID: 11400000, guid: 57085a50efdeb7e4ba007cc97e231381,
+        type: 2}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: OpenDoorAssetLeft
+      value: 
+      objectReference: {fileID: 11400000, guid: e55e80440497bdf41bcb00e00ba4e857,
+        type: 2}
     - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: LittleBar
       value: 
       objectReference: {fileID: 1705701739}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: SecondsToCompletion
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!4 &1705016261 stripped

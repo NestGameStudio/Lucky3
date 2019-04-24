@@ -11,7 +11,10 @@ public class ChamberController : MonoBehaviour
     public static ChamberController instance;
 
     [Space (10)]
-    public TileBase OpenDoorAsset;
+    public TileBase OpenDoorAssetLeft;
+    public TileBase OpenDoorAssetRight;
+    public TileBase OpenDoorAssetUp;
+    public TileBase OpenDoorAssetDown;
     public GameObject Cam;
     public Text LevelText;
 
@@ -129,10 +132,17 @@ public class ChamberController : MonoBehaviour
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 {
-                    Debug.Log("abriu minha portinha");
+                    Debug.Log("abriu minha portinha ");
 
-
-                    DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAsset);
+                    if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda
+                        DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetLeft);
+                    } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-3") {   // direita
+                        DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetRight);
+                    } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-2") {   // cima 
+                        DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetUp);
+                    } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-4") {   // baixo
+                        DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetDown);
+                    }
                 }
             }
         }
