@@ -3999,7 +3999,7 @@ Camera:
   far clip plane: 1000
   field of view: 40
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 5.933333
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4163,6 +4163,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320478401052772670, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320478401052772670, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320478401052772670, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320478401052772670, guid: c845f0bafff084bf4ae1e69737d1bad1,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c845f0bafff084bf4ae1e69737d1bad1, type: 3}
@@ -10364,7 +10384,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 6
+    OrthographicSize: 5.933333
     NearClipPlane: 0.1
     FarClipPlane: 1000
     Dutch: 0

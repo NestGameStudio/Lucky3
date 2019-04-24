@@ -23,10 +23,6 @@ public class PlayerLifeControl : MonoBehaviour
 
         //ativa anim de morte
         StartCoroutine(deathAnim());
-
-        lifes -= 1;
-
-        this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
     }
     private IEnumerator deathAnim()
     {
@@ -34,6 +30,10 @@ public class PlayerLifeControl : MonoBehaviour
         gameObject.GetComponentInChildren<Animator>().SetTrigger("death");
         yield return new WaitForSeconds(2);
         gameObject.GetComponent<PlayerMovimentation>().enabled = true;
+
+        lifes -= 1;
+
+        this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
 
     }
 

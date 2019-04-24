@@ -37,7 +37,7 @@ public class PlayerMovimentation : MonoBehaviour
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
-        this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 
         ChamberController.Instance.CheckIfCanOpenDoor();
@@ -52,8 +52,7 @@ public class PlayerMovimentation : MonoBehaviour
     // Place enemy in spawn
     public void RespawnPlayerAfterDeath() {
 
-
-        this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
         
         //reativa todos os inimigos mortos
@@ -88,7 +87,7 @@ public class PlayerMovimentation : MonoBehaviour
             playerWalked = false;
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
-            this.transform.position = Ground.GetCellCenterWorld(currentPlayerCellPosition);
+            playerRB.MovePosition(Ground.GetCellCenterWorld(currentPlayerCellPosition));
         }
     }
 
@@ -182,7 +181,7 @@ public class PlayerMovimentation : MonoBehaviour
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
-        this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
+        playerRB.MovePosition(Ground.GetCellCenterWorld(spawnCellPosition));
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 
         ChamberController.Instance.CheckIfCanOpenDoor();
