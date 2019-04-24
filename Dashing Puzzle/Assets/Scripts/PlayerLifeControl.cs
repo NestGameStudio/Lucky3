@@ -28,7 +28,7 @@ public class PlayerLifeControl : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovimentation>().enabled = false;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("death");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.8f);
         gameObject.GetComponent<PlayerMovimentation>().enabled = true;
 
         lifes -= 1;
