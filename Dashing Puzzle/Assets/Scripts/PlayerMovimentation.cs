@@ -71,17 +71,17 @@ public class PlayerMovimentation : MonoBehaviour
     private void PlayerMovement() {
 
         Vector3Int nextPosition = currentPlayerCellPosition;
-
-        if (Input.GetKeyDown(KeyCode.W)) {
+        
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             nextPosition += new Vector3Int( 0, CanWalkSpaces(Vector3Int.up), 0);
 
-        } else if (Input.GetKeyDown(KeyCode.S)) {
+        } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
             nextPosition -= new Vector3Int( 0, CanWalkSpaces(Vector3Int.down), 0);
 
-        } else if (Input.GetKeyDown(KeyCode.A)) {
+        } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             nextPosition -= new Vector3Int( CanWalkSpaces(Vector3Int.left), 0, 0);
 
-        } else if (Input.GetKeyDown(KeyCode.D)) {
+        } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
         }
 

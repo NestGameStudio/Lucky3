@@ -6,10 +6,9 @@ public class PlayerLifeControl : MonoBehaviour
 {
     public int lifes = 99;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterSeletion.Instance.RetriveCharacterAsset();
     }
 
     // Update is called once per frame

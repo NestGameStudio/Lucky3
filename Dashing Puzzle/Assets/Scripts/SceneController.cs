@@ -28,4 +28,15 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Victory");
     }
+
+    public void StartGame()
+    {
+        Debug.Log("Entrei 2");
+        SceneManager.LoadScene("Game Scene");
+    }
+
+    public void CharacterSeletion()
+    {
+        SceneManager.LoadScene("CharacterSelection");
+    }
 }
