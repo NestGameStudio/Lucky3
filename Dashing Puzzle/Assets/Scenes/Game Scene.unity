@@ -19585,6 +19585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScript: {fileID: 753511940}
+  maxZoom: 5
 --- !u!1001 &1302927623
 PrefabInstance:
   m_ObjectHideFlags: 0

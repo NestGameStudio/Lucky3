@@ -7,7 +7,7 @@ public class CameraZoomByTime : MonoBehaviour
 {
     float ZoomRatio;
     public GameObject timeScript;
-
+    public float maxZoom = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class CameraZoomByTime : MonoBehaviour
         float velocity = 0;
         //velocity += 1f;
         float normalizedValue = Mathf.InverseLerp(0, 60, ZoomRatio);
-        float result = Mathf.Lerp(6, 4f, normalizedValue);
+        float result = Mathf.Lerp(6, maxZoom, normalizedValue);
 
         gameObject.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = result;
         
