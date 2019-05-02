@@ -24,6 +24,7 @@ public class PlayerMovimentation : MonoBehaviour
     private bool playerDied = false;
     private bool playerChangedLevel = false;
 
+    public ParticleSystem dashParticle;
     // Start is called before the first frame update
     void Start()
     { 
@@ -74,15 +75,21 @@ public class PlayerMovimentation : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             nextPosition += new Vector3Int( 0, CanWalkSpaces(Vector3Int.up), 0);
+            dashParticle.Play();
 
         } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
             nextPosition -= new Vector3Int( 0, CanWalkSpaces(Vector3Int.down), 0);
+            dashParticle.Play();
 
-        } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             nextPosition -= new Vector3Int( CanWalkSpaces(Vector3Int.left), 0, 0);
+            dashParticle.Play();
 
-        } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
+            dashParticle.Play();
         }
 
         // can walk
