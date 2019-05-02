@@ -10569,16 +10569,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1497405543942044371, guid: c845f0bafff084bf4ae1e69737d1bad1,
-        type: 3}
-      propertyPath: Velocity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1320478401052772670, guid: c845f0bafff084bf4ae1e69737d1bad1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c845f0bafff084bf4ae1e69737d1bad1, type: 3}
 --- !u!1 &550246851 stripped
@@ -28959,6 +28949,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: LittleBar
+      value: 
+      objectReference: {fileID: 1705701739}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[0].ChamberGrid
@@ -29281,11 +29276,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e55e80440497bdf41bcb00e00ba4e857,
         type: 2}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: LittleBar
-      value: 
-      objectReference: {fileID: 1705701739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!4 &1705016261 stripped
