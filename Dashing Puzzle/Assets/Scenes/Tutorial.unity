@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168210507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1321.7975, y: -577.4509, z: 17}
+  m_LocalPosition: {x: -1321.7975, y: -577.74, z: 17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1175737423}
@@ -261,10 +261,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.5
-  m_Text: "As portas de cada n\xEDvel deveriam abrir apos\ncumprir os requisitos,
-    mas essa build tem um\nbug que nao este deixando isso acontecer\n\n\nAs portas
-    abrem funcionalmente, mas os sprites\nnao estao trocando para refletir essa mudanca.\n\n\n\n\n\n\nPedimos
-    desculpas pelo incoveniente, estamos\ntrabalhando para melhor atende-los"
+  m_Text: "As portas de cada nivel deveriam abrir apos\natingir os objetivos de cada
+    um deles, mas \nessa build tem um bug que esta impedindo isso\n de acontecer consistentemente\n\n\nAs
+    portas abrem funcionalmente, mas os sprites\nnao estao trocando para refletir
+    essa mudanca.\n\n\n\n\n\n\nPedimos desculpas pelo incoveniente, estamos\ntrabalhando
+    para melhor atende-los"
 --- !u!222 &339571343
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1034,7 +1035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801101512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1317.6257, y: -577.4809, z: 17}
+  m_LocalPosition: {x: -1317.6257, y: -577.76996, z: 17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1175737423}
