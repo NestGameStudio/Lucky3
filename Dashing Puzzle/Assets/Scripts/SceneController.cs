@@ -39,4 +39,13 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("CharacterSelection");
     }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
