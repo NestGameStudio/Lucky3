@@ -72,7 +72,7 @@ public class PlayerMovimentation : MonoBehaviour
     private void PlayerMovement() {
 
         Vector3Int nextPosition = currentPlayerCellPosition;
-        
+
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             nextPosition += new Vector3Int( 0, CanWalkSpaces(Vector3Int.up), 0);
             dashParticle.Play();
@@ -91,6 +91,8 @@ public class PlayerMovimentation : MonoBehaviour
             nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
             dashParticle.Play();
         }
+
+        // -------------------------------------------------------------------------------- Colocar animação do glow onde anda
 
         // can walk
         if (!playerDied && !playerChangedLevel) {

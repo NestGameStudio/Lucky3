@@ -134,6 +134,8 @@ public class ChamberController : MonoBehaviour
                 { 
                     Debug.Log("abriu a portinha");
 
+                    // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
+
                     if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda
                         DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetLeft);
                     } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-3") {   // direita

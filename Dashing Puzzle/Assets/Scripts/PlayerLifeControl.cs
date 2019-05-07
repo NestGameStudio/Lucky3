@@ -8,7 +8,7 @@ public class PlayerLifeControl : MonoBehaviour
 
     private void Awake()
     {
-        this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterSeletion.Instance.RetriveCharacterAsset();
+        //this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterSeletion.Instance.RetriveCharacterAsset();
     }
 
     // Update is called once per frame
