@@ -24,6 +24,9 @@ public class PlayerMovimentation : MonoBehaviour
     private bool playerDied = false;
     private bool playerChangedLevel = false;
 
+    private Vector3Int nextPosition;
+    private bool playerCanWalk = true;
+
     public ParticleSystem dashParticle;
     // Start is called before the first frame update
     void Start()
@@ -71,26 +74,42 @@ public class PlayerMovimentation : MonoBehaviour
 
     private void PlayerMovement() {
 
-        Vector3Int nextPosition = currentPlayerCellPosition;
-
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
-            nextPosition += new Vector3Int( 0, CanWalkSpaces(Vector3Int.up), 0);
-            dashParticle.Play();
-
-        } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
-            nextPosition -= new Vector3Int( 0, CanWalkSpaces(Vector3Int.down), 0);
-            dashParticle.Play();
-
+        if (Ground.WorldToCell(this.transform.position) == nextPosition || playerChangedLevel || playerDied)
+        {
+            playerCanWalk = true;
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-            nextPosition -= new Vector3Int( CanWalkSpaces(Vector3Int.left), 0, 0);
-            dashParticle.Play();
 
+        if (playerCanWalk)
+        {
+            nextPosition = currentPlayerCellPosition;
+
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                nextPosition += new Vector3Int(0, CanWalkSpaces(Vector3Int.up), 0);
+                dashParticle.Play();
+
+            }
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                nextPosition -= new Vector3Int(0, CanWalkSpaces(Vector3Int.down), 0);
+                dashParticle.Play();
+
+            }
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                nextPosition -= new Vector3Int(CanWalkSpaces(Vector3Int.left), 0, 0);
+                dashParticle.Play();
+
+            }
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                nextPosition += new Vector3Int(CanWalkSpaces(Vector3Int.right), 0, 0);
+                dashParticle.Play();
+            }
+
+            playerCanWalk = false;
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
-            nextPosition += new Vector3Int( CanWalkSpaces(Vector3Int.right), 0, 0);
-            dashParticle.Play();
-        }
+
 
         // -------------------------------------------------------------------------------- Colocar animação do glow onde anda
 
@@ -108,6 +127,7 @@ public class PlayerMovimentation : MonoBehaviour
     // Return 1 if the second tile there's an obstacle and nothing on the first one
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
+
 
         playerDied = false;
         playerChangedLevel = false;
