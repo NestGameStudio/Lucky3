@@ -66,7 +66,7 @@ public class ChamberController : MonoBehaviour
         currentSpawn = Spawns[currentChamberNumber];
         currentCamera = Camera[currentChamberNumber];
 
-        LevelText.text = "Level " + (currentChamberNumber + 1);
+        LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
 
     }
 
@@ -93,7 +93,7 @@ public class ChamberController : MonoBehaviour
 
         Cam.transform.position = currentCamera.transform.position;
 
-        LevelText.text = "Level " + (currentChamberNumber + 1);
+        LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
 
         // coloca o pin de posicão do player
         //TimeRushController.Instance.PlayerCompletionPosition();
