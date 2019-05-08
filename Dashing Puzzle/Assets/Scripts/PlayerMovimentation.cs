@@ -28,6 +28,8 @@ public class PlayerMovimentation : MonoBehaviour
     private bool playerCanWalk = true;
 
     public ParticleSystem dashParticle;
+
+    public AudioSource AudioDash;
     // Start is called before the first frame update
     void Start()
     { 
@@ -87,24 +89,31 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 nextPosition += new Vector3Int(0, CanWalkSpaces(Vector3Int.up), 0);
                 dashParticle.Play();
+                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
 
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 nextPosition -= new Vector3Int(0, CanWalkSpaces(Vector3Int.down), 0);
                 dashParticle.Play();
+                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
+
 
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 nextPosition -= new Vector3Int(CanWalkSpaces(Vector3Int.left), 0, 0);
                 dashParticle.Play();
+                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
+
 
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 nextPosition += new Vector3Int(CanWalkSpaces(Vector3Int.right), 0, 0);
                 dashParticle.Play();
+                AudioDash.PlayOneShot(AudioDash.clip,AudioDash.volume);
+
             }
 
             playerCanWalk = false;

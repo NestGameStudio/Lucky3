@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerLifeControl : MonoBehaviour
 {
     public int lifes = 99;
+    public AudioSource AudioDeath;
 
     private void Awake()
     {
@@ -27,9 +28,10 @@ public class PlayerLifeControl : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovimentation>().enabled = false;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("death");
+        AudioDeath.PlayOneShot(AudioDeath.clip, AudioDeath.volume);
         yield return new WaitForSeconds(0.8f);
         gameObject.GetComponent<PlayerMovimentation>().enabled = true;
-
+        
         lifes -= 1;
 
         this.GetComponent<PlayerMovimentation>().RespawnPlayerAfterDeath();
