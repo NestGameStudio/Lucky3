@@ -10975,10 +10975,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 253571946, guid: 500f4a75a480c4d51b709b8aef6ae4d8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250.7
-      objectReference: {fileID: 0}
     - target: {fileID: 253571949, guid: 500f4a75a480c4d51b709b8aef6ae4d8, type: 3}
       propertyPath: gameManager
       value: 
@@ -20145,7 +20141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243655638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91a79b19dd2b5de4b8a377d7ef94be26, type: 3}
   m_Name: 
