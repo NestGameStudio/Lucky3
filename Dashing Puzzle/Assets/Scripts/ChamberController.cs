@@ -57,6 +57,13 @@ public class ChamberController : MonoBehaviour
             Enemies.Add(ChambersInGame[i].Enemies);
             Spawns.Add(ChambersInGame[i].Spawn);
             Camera.Add(ChambersInGame[i].Camera);
+
+            /*Debug.Log("Level Data: " + 
+                    "Level: " + i +
+                    "\n Ground Tiles: " + GroundTilemaps[i].size +
+                    "\n Obstacles Tiles: " + ObstaclesTilemaps[i].size +
+                    "\n Doors Tiles: " + DoorsTilemaps[i].size);*/
+
         }
 
         currentGroundTilemap = GroundTilemaps[currentChamberNumber];
@@ -67,6 +74,9 @@ public class ChamberController : MonoBehaviour
         currentCamera = Camera[currentChamberNumber];
 
         LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
+
+        // O problem aqui é que ele só não encontra a posicão x np tilemapDoor na grid
+        // Size != cell Bounds
 
     }
 
@@ -120,23 +130,24 @@ public class ChamberController : MonoBehaviour
     }
 
     private void OpenDoor() {
-    
-        // Abre as portas que estavam fechadas
+
+        // Abre as portas que estavam fechadas 
+
         for (int n = DoorsTilemaps[currentChamberNumber].cellBounds.xMin; n < DoorsTilemaps[currentChamberNumber].cellBounds.xMax; n++)
         {
             for (int p = DoorsTilemaps[currentChamberNumber].cellBounds.yMin; p < DoorsTilemaps[currentChamberNumber].cellBounds.yMax; p++)
             {
-                Debug.Log("pq vc nao acha o asset da porta " + currentChamberNumber);
-
                 Vector3Int localPlace = (new Vector3Int(n, p, (int)DoorsTilemaps[currentChamberNumber].transform.position.y));
+                Debug.Log("x: " + n + " y: " + p);
+                Debug.Log("Level: " + currentChamberNumber + "\n Num of Tiles: " + DoorsTilemaps[currentChamberNumber].size + "\n Position: " + localPlace);
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 { 
-                    Debug.Log("abriu a portinha");
+                    Debug.Log("Cell Name: " + DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name);
 
                     // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
 
-                    if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda
+            if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda
                         DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetLeft);
                     } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-3") {   // direita
                         DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetRight);
