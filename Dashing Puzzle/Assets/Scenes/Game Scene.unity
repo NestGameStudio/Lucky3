@@ -11101,6 +11101,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2931198262759438103, guid: 4a93d9967d0c3ee429400e7c0bfd305d,
+        type: 3}
+      propertyPath: hasMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931198262759438103, guid: 4a93d9967d0c3ee429400e7c0bfd305d,
+        type: 3}
+      propertyPath: Orientation
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931198262759438103, guid: 4a93d9967d0c3ee429400e7c0bfd305d,
+        type: 3}
+      propertyPath: Velocity
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a93d9967d0c3ee429400e7c0bfd305d, type: 3}
 --- !u!1 &688898127 stripped
@@ -29422,16 +29437,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: LittleBar
-      value: 
-      objectReference: {fileID: 1705701739}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: SecondsToCompletion
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.data[0].ChamberGrid
@@ -29754,6 +29759,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e55e80440497bdf41bcb00e00ba4e857,
         type: 2}
+    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: LittleBar
+      value: 
+      objectReference: {fileID: 1705701739}
+    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: SecondsToCompletion
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!4 &1705016261 stripped

@@ -30,6 +30,9 @@ public class PlayerMovimentation : MonoBehaviour
     public ParticleSystem dashParticle;
 
     public AudioSource AudioDash;
+
+    private bool MoveEnemyOnce = false;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -128,6 +131,16 @@ public class PlayerMovimentation : MonoBehaviour
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentPlayerCellPosition), Velocity * Time.deltaTime);
+
+            // Move Enemy
+            if (MoveEnemyOnce) {
+                foreach (Transform enemy in Enemies.transform) {
+                    if (enemy.GetComponent<EnemyBehaviour>().hasMovement) {
+                        enemy.GetComponent<EnemyBehaviour>().DoEnemyMovement();
+                    }
+                }
+                MoveEnemyOnce = false;
+            }
         }
     }
 
@@ -137,7 +150,7 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
-
+        MoveEnemyOnce = true;
         playerDied = false;
         playerChangedLevel = false;
 
