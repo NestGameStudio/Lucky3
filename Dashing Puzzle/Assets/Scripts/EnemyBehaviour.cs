@@ -9,7 +9,6 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public bool hasMovement = false;
     public EnemyMovementDirection Orientation;
-    public float Velocity;
 
     private Tilemap Ground;
     private Vector3Int currentEnemyPositionInCell;
@@ -20,12 +19,24 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Ajeita a posição dos inimigos pro centro da celula
-        Ground = ChamberController.Instance.currentGroundTilemap;
 
-        currentEnemyPositionInCell = Ground.WorldToCell(this.transform.position);
-        //this.transform.position = Ground.GetCellCenterLocal(currentEnemyPositionInCell);
-        this.transform.position = Ground.GetCellCenterWorld(currentEnemyPositionInCell);
+        foreach (Chambers chamber in ChamberController.Instance.ChambersInGame) {
+
+            Tilemap levelGround = chamber.ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>();
+
+            // Adjust the enemy in the Ground position relative to it's level
+            foreach (Transform enemy in chamber.Enemies.transform) {
+
+                if (enemy == this.transform)
+                {
+                    currentEnemyPositionInCell = levelGround.WorldToCell(this.transform.position);
+                    this.transform.position = levelGround.GetCellCenterWorld(currentEnemyPositionInCell);
+                    Ground = levelGround;
+                    break;
+                }
+            }
+        }
+
     }
 
 
@@ -66,8 +77,7 @@ public class EnemyBehaviour : MonoBehaviour
             }
 
             currentEnemyPositionInCell = nextPosition;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentEnemyPositionInCell), Velocity * Time.deltaTime);
-
+            this.transform.position = Ground.GetCellCenterWorld(currentEnemyPositionInCell);
         }
 
         Debug.Log("Move bichin");
