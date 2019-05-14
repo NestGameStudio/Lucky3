@@ -33,7 +33,9 @@ public class ChamberController : MonoBehaviour
     private List<GameObject> Enemies = new List<GameObject>();
     private List<GameObject> Spawns = new List<GameObject>();
     private List<GameObject> Camera = new List<GameObject>();
-    
+
+    private AudioSource AudioOpenDoor;
+
     public static ChamberController Instance { get { return instance; } }
 
     private void Awake() {
@@ -134,10 +136,11 @@ public class ChamberController : MonoBehaviour
                 Vector3Int localPlace = (new Vector3Int(n, p, 0));
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
-                { 
+                {
 
                     // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
-
+                    AudioOpenDoor = GameObject.Find("Open Door Audio").GetComponent<AudioSource>();
+                    AudioOpenDoor.PlayOneShot(AudioOpenDoor.clip,AudioOpenDoor.volume);
             if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda
                         DoorsTilemaps[currentChamberNumber].SetTile(localPlace, OpenDoorAssetLeft);
                     } else if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-3") {   // direita
