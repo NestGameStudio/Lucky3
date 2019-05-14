@@ -60,7 +60,6 @@ public class PlayerMovimentation : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) {
             this.GetComponent<PlayerLifeControl>().KillPlayer();
-            //RespawnPlayerAfterDeath();
         }
     }
 

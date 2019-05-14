@@ -132,12 +132,12 @@ public class ChamberController : MonoBehaviour
             for (int p = DoorsTilemaps[currentChamberNumber].cellBounds.yMin; p < DoorsTilemaps[currentChamberNumber].cellBounds.yMax; p++)
             {
                 Vector3Int localPlace = (new Vector3Int(n, p, (int)DoorsTilemaps[currentChamberNumber].transform.position.y));
-                //Debug.Log("x: " + n + " y: " + p);
-                //Debug.Log("Level: " + currentChamberNumber + "\n Num of Tiles: " + DoorsTilemaps[currentChamberNumber].size + "\n Position: " + localPlace);
+                Debug.Log("x: " + n + " y: " + p);
+                Debug.Log("Level: " + currentChamberNumber + "\n Num of Tiles: " + DoorsTilemaps[currentChamberNumber].size + "\n Position: " + localPlace);
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 { 
-                    //Debug.Log("Cell Name: " + DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name);
+                    Debug.Log("Cell Name: " + DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name);
 
                     // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
 
