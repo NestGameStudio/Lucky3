@@ -49,7 +49,7 @@ public class ChamberController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i < ChambersInGame.Length - 1; i++) {
+        for (int i=0; i < ChambersInGame.Length; i++) {
 
             GroundTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>());
             ObstaclesTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Obstacles").GetComponent<Tilemap>());
@@ -131,13 +131,10 @@ public class ChamberController : MonoBehaviour
         {
             for (int p = DoorsTilemaps[currentChamberNumber].cellBounds.yMin; p < DoorsTilemaps[currentChamberNumber].cellBounds.yMax; p++)
             {
-                Vector3Int localPlace = (new Vector3Int(n, p, (int)DoorsTilemaps[currentChamberNumber].transform.position.y));
-                Debug.Log("x: " + n + " y: " + p);
-                Debug.Log("Level: " + currentChamberNumber + "\n Num of Tiles: " + DoorsTilemaps[currentChamberNumber].size + "\n Position: " + localPlace);
+                Vector3Int localPlace = (new Vector3Int(n, p, 0));
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 { 
-                    Debug.Log("Cell Name: " + DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name);
 
                     // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
 
