@@ -80,7 +80,6 @@ public class EnemyBehaviour : MonoBehaviour
             this.transform.position = Ground.GetCellCenterWorld(currentEnemyPositionInCell);
         }
 
-        Debug.Log("Move bichin");
     }
 
 }

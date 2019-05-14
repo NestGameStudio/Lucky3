@@ -30,8 +30,10 @@ public class PlayerMovimentation : MonoBehaviour
     public ParticleSystem dashParticle;
 
     public AudioSource AudioDash;
+    public AudioSource AudioEnemyDeath;
 
     private bool MoveEnemyOnce = false;
+    private bool PlayParticleOnce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class PlayerMovimentation : MonoBehaviour
         PlayerMovement();
 
         if (Input.GetKeyDown(KeyCode.R)) {
-            RespawnPlayerAfterDeath();
+            this.GetComponent<PlayerLifeControl>().KillPlayer();
         }
     }
 
@@ -67,6 +69,8 @@ public class PlayerMovimentation : MonoBehaviour
 
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+
+        playerDied = true;
         
         //reativa todos os inimigos mortos
         foreach (Transform DeadEnemy in Enemies.GetComponentInChildren<Transform>(true)) {
@@ -91,56 +95,51 @@ public class PlayerMovimentation : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 nextPosition += new Vector3Int(0, CanWalkSpaces(Vector3Int.up), 0);
-                dashParticle.Play();
-                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
-
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 nextPosition -= new Vector3Int(0, CanWalkSpaces(Vector3Int.down), 0);
-                dashParticle.Play();
-                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
-
-
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 nextPosition -= new Vector3Int(CanWalkSpaces(Vector3Int.left), 0, 0);
-                dashParticle.Play();
-                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
-
-
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 nextPosition += new Vector3Int(CanWalkSpaces(Vector3Int.right), 0, 0);
-                dashParticle.Play();
-                AudioDash.PlayOneShot(AudioDash.clip,AudioDash.volume);
-
             }
 
             playerCanWalk = false;
         }
 
-
-        // -------------------------------------------------------------------------------- Colocar animação do glow onde anda
-
-        // can walk
+        // can walk - loop
         if (!playerDied && !playerChangedLevel) {
 
+            if (PlayParticleOnce) {
+                dashParticle.Play();
+                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
+                PlayParticleOnce = false;
+            }
+
+            // Move Player
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentPlayerCellPosition), Velocity * Time.deltaTime);
 
             // Move Enemy
-            if (MoveEnemyOnce) {
+            if (MoveEnemyOnce)  {
                 foreach (Transform enemy in Enemies.transform) {
                     if (enemy.GetComponent<EnemyBehaviour>().hasMovement) {
                         enemy.GetComponent<EnemyBehaviour>().DoEnemyMovement();
+
+                        if (!CheckIfEnemyKilledPlayer(Vector3.zero)) {
+                            CheckIfPlayerKilledEnemy(Vector3.zero);
+                        }
                     }
                 }
                 MoveEnemyOnce = false;
             }
+
         }
     }
 
@@ -150,6 +149,7 @@ public class PlayerMovimentation : MonoBehaviour
     // return 0 if there's a enemy in the second tile or there's an obstacle in the second tile and an enemy on the first tile
     private int CanWalkSpaces(Vector3Int dir) {
 
+        PlayParticleOnce = true;
         MoveEnemyOnce = true;
         playerDied = false;
         playerChangedLevel = false;
@@ -158,14 +158,8 @@ public class PlayerMovimentation : MonoBehaviour
             return 0;
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
 
-            foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
-                if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
-
-                    this.GetComponent<PlayerLifeControl>().KillPlayer();
-                    playerDied = true;
-
-                    return 0;
-                }
+            if (CheckIfEnemyKilledPlayer(dir)) {   // tem inimigo 1 tile a frente - dead
+                return 0;
             }
 
             if (Doors.HasTile(currentPlayerCellPosition + dir) && ChamberController.Instance.doorIsOpen)
@@ -183,19 +177,11 @@ public class PlayerMovimentation : MonoBehaviour
 
         } else {                                                                        // Não tem obstaculos a frente
 
-            foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>()) {
-                if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - kill
-
-                    enemy.gameObject.SetActive(false);
-                    ChamberController.Instance.CheckIfCanOpenDoor();
-
-                } else if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + dir + dir) && enemy.gameObject.activeSelf) {   // tem inimigo 2 tiles a frente - dead
-
-                    this.GetComponent<PlayerLifeControl>().KillPlayer();
-                    playerDied = true;
-
-                    return 0;
-                }
+            if (CheckIfPlayerKilledEnemy(dir)) {   // tem inimigo 1 tile a frente - kill
+                // Kill
+                AudioEnemyDeath.PlayOneShot(AudioEnemyDeath.clip,AudioEnemyDeath.volume);
+            } else if (CheckIfEnemyKilledPlayer(dir + dir))  {   // tem inimigo 1 tile a frente - dead
+                return 0;
             }
 
             if (Doors.HasTile(currentPlayerCellPosition + dir))
@@ -222,6 +208,36 @@ public class PlayerMovimentation : MonoBehaviour
 
             return 2;
         }
+    }
+
+    private bool CheckIfEnemyKilledPlayer(Vector3 direction)
+    {
+        foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>())
+        {
+            if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
+
+                this.GetComponent<PlayerLifeControl>().KillPlayer();
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool CheckIfPlayerKilledEnemy(Vector3 direction)
+    {
+        foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>())
+        {
+            if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - kill
+
+                enemy.gameObject.SetActive(false);
+                ChamberController.Instance.CheckIfCanOpenDoor();
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void updateChamber()
