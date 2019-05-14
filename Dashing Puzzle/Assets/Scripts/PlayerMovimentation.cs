@@ -251,7 +251,7 @@ public class PlayerMovimentation : MonoBehaviour
     {
         foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>())
         {
-            if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf && !enemy.GetComponent<EnemyBehaviour>().hasMovement) {        // tem inimigo 1 tile a frente - kill
+            if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf && !enemy.GetComponent<EnemyBehaviour>().hasMovement && !movingEnemies) {        // tem inimigo 1 tile a frente - kill
 
                 enemy.gameObject.SetActive(false);
                 ChamberController.Instance.CheckIfCanOpenDoor();
