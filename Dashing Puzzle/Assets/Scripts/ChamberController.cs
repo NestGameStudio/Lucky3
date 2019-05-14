@@ -49,7 +49,7 @@ public class ChamberController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i < ChambersInGame.Length; i++) {
+        for (int i=0; i < ChambersInGame.Length - 1; i++) {
 
             GroundTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>());
             ObstaclesTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Obstacles").GetComponent<Tilemap>());
@@ -57,12 +57,6 @@ public class ChamberController : MonoBehaviour
             Enemies.Add(ChambersInGame[i].Enemies);
             Spawns.Add(ChambersInGame[i].Spawn);
             Camera.Add(ChambersInGame[i].Camera);
-
-            /*Debug.Log("Level Data: " + 
-                    "Level: " + i +
-                    "\n Ground Tiles: " + GroundTilemaps[i].size +
-                    "\n Obstacles Tiles: " + ObstaclesTilemaps[i].size +
-                    "\n Doors Tiles: " + DoorsTilemaps[i].size);*/
 
         }
 
