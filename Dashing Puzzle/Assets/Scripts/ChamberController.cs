@@ -35,6 +35,7 @@ public class ChamberController : MonoBehaviour
     private List<GameObject> Camera = new List<GameObject>();
 
     private AudioSource AudioOpenDoor;
+    private AudioSource AudioChangeLevel;
 
     public static ChamberController Instance { get { return instance; } }
 
@@ -98,6 +99,9 @@ public class ChamberController : MonoBehaviour
         currentCamera = Camera[currentChamberNumber];
 
         Cam.transform.position = currentCamera.transform.position;
+
+        AudioOpenDoor = GameObject.Find("Change Level Audio").GetComponent<AudioSource>();
+        AudioOpenDoor.PlayOneShot(AudioOpenDoor.clip,AudioOpenDoor.volume);
 
         LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
 
