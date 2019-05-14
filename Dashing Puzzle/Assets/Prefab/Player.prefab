@@ -344,6 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1790623725}
   - component: {fileID: 1790623724}
+  - component: {fileID: 8499566458241651272}
   m_Layer: 0
   m_Name: Die Audio
   m_TagString: Untagged
@@ -378,7 +379,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 3f3e83b0da18607469fe1f4aed62462d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.5
+  m_Pitch: 0.4
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -461,6 +462,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!170 &8499566458241651272
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790623723}
+  m_Enabled: 1
+  m_DistortionLevel: 0.3
 --- !u!1 &2042265304
 GameObject:
   m_ObjectHideFlags: 0
