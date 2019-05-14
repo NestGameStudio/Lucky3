@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 706644177}
   - component: {fileID: 706644179}
   - component: {fileID: 706644180}
+  - component: {fileID: 6143353705363202321}
   m_Layer: 0
   m_Name: Dash Audio
   m_TagString: Untagged
@@ -77,8 +78,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 355f0203f6f958348ac447dfc79755d2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.785
+  m_Pitch: 0.6
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -196,6 +197,15 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!170 &6143353705363202321
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706644176}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5
 --- !u!1 &1790623723
 GameObject:
   m_ObjectHideFlags: 0
