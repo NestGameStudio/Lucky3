@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3Int currentEnemyPositionInCell;
 
     private Vector3Int nextPosition;
-    private bool isInDesiredPosition = false;
+    [HideInInspector] public bool isInDesiredPosition = false;
 
     // Start is called before the first frame update
     void Start()

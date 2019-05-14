@@ -78,6 +78,13 @@ public class PlayerMovimentation : MonoBehaviour
             if (!DeadEnemy.gameObject.activeSelf) {
                 DeadEnemy.gameObject.SetActive(true);
             }
+
+            if (DeadEnemy.GetComponent<EnemyBehaviour>().hasMovement) {
+                if (DeadEnemy.GetComponent<EnemyBehaviour>().isInDesiredPosition)  {
+                    DeadEnemy.GetComponent<EnemyBehaviour>().DoEnemyMovement();
+                }
+
+            }
         }
     }
 
