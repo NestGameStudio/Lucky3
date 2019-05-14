@@ -121,23 +121,23 @@ public class PlayerMovimentation : MonoBehaviour
                 PlayParticleOnce = false;
             }
 
+            // Move Enemy
+            if (MoveEnemyOnce) { 
+                foreach (Transform enemy in Enemies.transform) {
+                    if (enemy.GetComponent<EnemyBehaviour>().hasMovement) {
+                        enemy.GetComponent<EnemyBehaviour>().DoEnemyMovement();
+                    }
+                }
+                MoveEnemyOnce = false;
+            }
+
             // Move Player
             currentPlayerCellPosition = nextPosition;
             currentPlayerTileBase = Ground.GetTile(nextPosition);
             this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentPlayerCellPosition), Velocity * Time.deltaTime);
 
-            // Move Enemy
-            if (MoveEnemyOnce)  {
-                foreach (Transform enemy in Enemies.transform) {
-                    if (enemy.GetComponent<EnemyBehaviour>().hasMovement) {
-                        enemy.GetComponent<EnemyBehaviour>().DoEnemyMovement();
-
-                        if (!CheckIfEnemyKilledPlayer(Vector3.zero)) {
-                            CheckIfPlayerKilledEnemy(Vector3.zero);
-                        }
-                    }
-                }
-                MoveEnemyOnce = false;
+            if (!CheckIfEnemyKilledPlayer(Vector3.zero)) {
+                CheckIfPlayerKilledEnemy(Vector3.zero);
             }
 
         }
