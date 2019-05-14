@@ -18,7 +18,7 @@ public class MakeMusicSpeedUp : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
+        //Debug.Log(timer);
         gameObject.GetComponent<AudioSource>().outputAudioMixerGroup.audioMixer.SetFloat("Pitch",minPitch+(timer/280));
     }
 }
