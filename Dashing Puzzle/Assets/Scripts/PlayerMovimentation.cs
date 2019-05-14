@@ -30,6 +30,7 @@ public class PlayerMovimentation : MonoBehaviour
     public ParticleSystem dashParticle;
 
     public AudioSource AudioDash;
+    public AudioSource AudioEnemyDeath;
 
     private bool MoveEnemyOnce = false;
     private bool PlayParticleOnce = false;
@@ -178,7 +179,7 @@ public class PlayerMovimentation : MonoBehaviour
 
             if (CheckIfPlayerKilledEnemy(dir)) {   // tem inimigo 1 tile a frente - kill
                 // Kill
-
+                AudioEnemyDeath.PlayOneShot(AudioEnemyDeath.clip,AudioEnemyDeath.volume);
             } else if (CheckIfEnemyKilledPlayer(dir + dir))  {   // tem inimigo 1 tile a frente - dead
                 return 0;
             }
