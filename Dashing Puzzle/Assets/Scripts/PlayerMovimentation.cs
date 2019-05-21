@@ -28,6 +28,7 @@ public class PlayerMovimentation : MonoBehaviour
     private bool playerCanWalk = true;
 
     public ParticleSystem dashParticle;
+    public ParticleSystem floorParticle;
 
     public AudioSource AudioDash;
     public AudioSource AudioEnemyDeath;
@@ -90,6 +91,13 @@ public class PlayerMovimentation : MonoBehaviour
     }
 
     private void PlayerMovement() {
+
+        if (Ground.WorldToCell(this.transform.position) != currentPlayerCellPosition)
+        {
+            floorParticle.transform.position = Ground.GetCellCenterWorld(Ground.WorldToCell(this.transform.position));
+            floorParticle.Play();
+            // Play Particle Floor Here
+        }
 
         if (Ground.WorldToCell(this.transform.position) == nextPosition || playerChangedLevel || playerDied)
         {
