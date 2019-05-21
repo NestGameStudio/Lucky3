@@ -4962,7 +4962,7 @@ AudioHighPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706644176}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CutoffFrequency: 500
   m_HighpassResonanceQ: 1
 --- !u!169 &706644180
@@ -4972,7 +4972,7 @@ AudioLowPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706644176}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
@@ -4980,7 +4980,7 @@ AudioLowPassFilter:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.25
+      value: 0.4090909
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4998,7 +4998,7 @@ AudioDistortionFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706644176}
   m_Enabled: 1
-  m_DistortionLevel: 0.5
+  m_DistortionLevel: 0.55
 --- !u!1 &961120070
 GameObject:
   m_ObjectHideFlags: 0
