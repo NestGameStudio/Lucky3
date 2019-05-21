@@ -78,8 +78,9 @@ public class EnemyBehaviour : MonoBehaviour
             }
 
             currentEnemyPositionInCell = nextPosition;
-            //this.transform.position = Ground.GetCellCenterWorld(currentEnemyPositionInCell);
-            StartCoroutine(MoveEnemy());
+            if (this.isActiveAndEnabled) {
+                StartCoroutine(MoveEnemy());
+            }
         }
 
     }
