@@ -36,6 +36,8 @@ public class ChamberController : MonoBehaviour
 
     private AudioSource AudioOpenDoor;
     private AudioSource AudioChangeLevel;
+    public ParticleSystem OpenDoorAnim;
+
 
     public static ChamberController Instance { get { return instance; } }
 
@@ -141,8 +143,9 @@ public class ChamberController : MonoBehaviour
 
                 if (DoorsTilemaps[currentChamberNumber].HasTile(localPlace))
                 {
+                    OpenDoorAnim.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
+                    OpenDoorAnim.Play();
 
-                    // ------------------------------------------------------------------------------------- Efeito sonoro da portinha
                     AudioOpenDoor = GameObject.Find("Open Door Audio").GetComponent<AudioSource>();
                     AudioOpenDoor.PlayOneShot(AudioOpenDoor.clip,AudioOpenDoor.volume);
             if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda

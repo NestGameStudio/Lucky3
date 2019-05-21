@@ -17,6 +17,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     private Vector3Int spawnCellPosition;
     private Vector3Int currentPlayerCellPosition;
+    private Vector3Int locationInfloorPlayerCellPosition;
     private TileBase currentPlayerTileBase;
 
     private Rigidbody2D playerRB;
@@ -52,6 +53,7 @@ public class PlayerMovimentation : MonoBehaviour
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+        locationInfloorPlayerCellPosition = currentPlayerCellPosition;
 
         ChamberController.Instance.CheckIfCanOpenDoor();
     }
@@ -94,7 +96,8 @@ public class PlayerMovimentation : MonoBehaviour
 
         if (Ground.WorldToCell(this.transform.position) != currentPlayerCellPosition)
         {
-            floorParticle.transform.position = Ground.GetCellCenterWorld(Ground.WorldToCell(this.transform.position));
+            //locationInfloorPlayerCellPosition = Ground.WorldToCell(this.transform.position);
+            //floorParticle.transform.position = Ground.GetCellCenterWorld(locationInfloorPlayerCellPosition);
             floorParticle.Play();
             // Play Particle Floor Here
         }
@@ -109,26 +112,39 @@ public class PlayerMovimentation : MonoBehaviour
         if (playerCanWalk)
         {
             nextPosition = currentPlayerCellPosition;
+            locationInfloorPlayerCellPosition = currentPlayerCellPosition;
 
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 newPos = Vector3Int.up;
                 nextPosition += new Vector3Int(0, CanWalkSpaces(Vector3Int.up), 0);
+                if (CanWalkSpaces(Vector3Int.up) == 2) {
+                    locationInfloorPlayerCellPosition += new Vector3Int(0, CanWalkSpaces(Vector3Int.up) -1, 0);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 newPos = Vector3Int.down;
                 nextPosition -= new Vector3Int(0, CanWalkSpaces(Vector3Int.down), 0);
+                if (CanWalkSpaces(Vector3Int.down) == 2) {
+                    locationInfloorPlayerCellPosition -= new Vector3Int(0, CanWalkSpaces(Vector3Int.down) - 1, 0);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 newPos = Vector3Int.left;
                 nextPosition -= new Vector3Int(CanWalkSpaces(Vector3Int.left), 0, 0);
+                if (CanWalkSpaces(Vector3Int.left) == 2) {
+                    locationInfloorPlayerCellPosition -= new Vector3Int(CanWalkSpaces(Vector3Int.left) - 1, 0, 0);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 newPos = Vector3Int.right;
                 nextPosition += new Vector3Int(CanWalkSpaces(Vector3Int.right), 0, 0);
+                if (CanWalkSpaces(Vector3Int.right) == 2) {
+                    locationInfloorPlayerCellPosition += new Vector3Int(CanWalkSpaces(Vector3Int.right) - 1, 0, 0);
+                }
             }
 
             playerCanWalk = false;
@@ -137,7 +153,13 @@ public class PlayerMovimentation : MonoBehaviour
         // can walk - loop
         if (!playerDied && !playerChangedLevel) {
 
+            // ele anda triga durante o caminho e no final quando termina de andar ele brilha onde tinha que ter brilhado antes
             if (PlayParticleOnce) {
+                if (locationInfloorPlayerCellPosition != currentPlayerCellPosition) {
+                   // Debug.Log("ta triggando particulazinha");
+                    floorParticle.transform.position = Ground.GetCellCenterWorld(locationInfloorPlayerCellPosition);
+                    floorParticle.Play();
+                }
                 dashParticle.Play();
                 AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
                 PlayParticleOnce = false;
