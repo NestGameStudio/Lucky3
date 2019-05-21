@@ -15145,6 +15145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5910027824960087919}
   - component: {fileID: 3325075903887556581}
+  - component: {fileID: 7117116341103824337}
   m_Layer: 0
   m_Name: Open Door Audio
   m_TagString: Untagged
@@ -15262,3 +15263,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!165 &7117116341103824337
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022281622283876459}
+  m_Enabled: 1
+  m_CutoffFrequency: 300
+  m_HighpassResonanceQ: 1
