@@ -9,7 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public bool hasMovement = false;
     public EnemyMovementDirection Orientation;
-    public float velocity = 30f;
+    public float Velocity = 30f;
 
     private Tilemap Ground;
     private Vector3Int currentEnemyPositionInCell;
@@ -78,17 +78,17 @@ public class EnemyBehaviour : MonoBehaviour
             }
 
             currentEnemyPositionInCell = nextPosition;
+            //this.transform.position = Ground.GetCellCenterWorld(currentEnemyPositionInCell);
             StartCoroutine(MoveEnemy());
-            //this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentEnemyPositionInCell), velocity * Time.deltaTime);
         }
 
     }
 
     IEnumerator MoveEnemy()
     {
-        while (Ground.WorldToCell(this.transform.position) == currentEnemyPositionInCell)
+        while (this.transform.position != Ground.GetCellCenterWorld(currentEnemyPositionInCell))
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentEnemyPositionInCell), velocity * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, Ground.GetCellCenterWorld(currentEnemyPositionInCell), Velocity * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }
