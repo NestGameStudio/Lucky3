@@ -146,8 +146,6 @@ public class ChamberController : MonoBehaviour
                     OpenDoorAnim.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
                     OpenDoorAnim.Play();
 
-                    Debug.Log("Abriu portinha " + OpenDoorAnim.isPlaying);
-
                     AudioOpenDoor = GameObject.Find("Open Door Audio").GetComponent<AudioSource>();
                     AudioOpenDoor.PlayOneShot(AudioOpenDoor.clip,AudioOpenDoor.volume);
             if (DoorsTilemaps[currentChamberNumber].GetTile(localPlace).name == "Tiles-Porta-Fechado-1") {  // esquerda

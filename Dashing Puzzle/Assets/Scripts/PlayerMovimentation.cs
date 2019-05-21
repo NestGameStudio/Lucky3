@@ -174,11 +174,12 @@ public class PlayerMovimentation : MonoBehaviour
 
             if (FazUmaVezSoCarai)
             {
-                if (!CheckIfEnemyKilledPlayer(Vector3.zero, true))
-                {
+                if (!CheckIfEnemyKilledPlayer(Vector3.zero, true)) {
+
                     // tem que pegar a direção dessa desgraça
                     CheckIfPlayerKilledEnemy(newPos, true);
                 }
+                CheckIfEnemyKilledPlayer(Vector3.zero, false);
                 FazUmaVezSoCarai = false;
             }
            
@@ -201,9 +202,9 @@ public class PlayerMovimentation : MonoBehaviour
             return 0;
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
 
-            if (CheckIfEnemyKilledPlayer(dir, false)) {   // tem inimigo 1 tile a frente - dead
+            /*if (CheckIfEnemyKilledPlayer(dir, false)) {   // tem inimigo 1 tile a frente - dead
                 return 0;
-            }
+            }*/
 
             if (Doors.HasTile(currentPlayerCellPosition + dir) && ChamberController.Instance.doorIsOpen)
             {
@@ -223,9 +224,9 @@ public class PlayerMovimentation : MonoBehaviour
             if (CheckIfPlayerKilledEnemy(dir, false)) {   // tem inimigo 1 tile a frente - kill
                 // Kill
                 AudioEnemyDeath.PlayOneShot(AudioEnemyDeath.clip,AudioEnemyDeath.volume);
-            } else if (CheckIfEnemyKilledPlayer(dir + dir, false))  {   // tem inimigo 1 tile a frente - dead
+            } /*else if (CheckIfEnemyKilledPlayer(dir + dir, false))  {   // tem inimigo 1 tile a frente - dead
                 return 0;
-            }
+            }*/
 
             if (Doors.HasTile(currentPlayerCellPosition + dir))
             {
@@ -260,7 +261,7 @@ public class PlayerMovimentation : MonoBehaviour
             if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
 
                 if (!enemy.GetComponent<EnemyBehaviour>().hasMovement || (enemy.GetComponent<EnemyBehaviour>().hasMovement && movingEnemies)) {
-                    this.GetComponent<PlayerLifeControl>().KillPlayer();
+                    StartCoroutine(WaitUntilKillPlayer());
                     return true;
                 }
             }
@@ -307,6 +308,15 @@ public class PlayerMovimentation : MonoBehaviour
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
 
         ChamberController.Instance.CheckIfCanOpenDoor();
+    }
+
+    IEnumerator WaitUntilKillPlayer()
+    {
+        while (Ground.WorldToCell(this.transform.position) != currentPlayerCellPosition) {
+            yield return new WaitForEndOfFrame();
+        }
+
+        this.GetComponent<PlayerLifeControl>().KillPlayer();
     }
 
 }
