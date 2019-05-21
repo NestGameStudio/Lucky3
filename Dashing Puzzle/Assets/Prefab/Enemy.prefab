@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ca44f416106e3478817402431fdfd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMovement: 1
-  Orientation: 3
-  velocity: 30
+  hasMovement: 0
+  Orientation: 0
+  Velocity: 30
   isInDesiredPosition: 0
 --- !u!95 &8059175414037077212
 Animator:
