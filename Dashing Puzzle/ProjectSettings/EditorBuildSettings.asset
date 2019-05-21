@@ -17,10 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cenas de resultado/Victory.unity
     guid: b3139de36febe9c43a58b1ff205810fd
-  - enabled: 1
-    path: Assets/Scenes/CharacterSelection.unity
-    guid: 066dcfbbe4dba4a4ba36bf3ae9324dc6
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: 3b64b8da6318d104b80850e414f43edf
+  - enabled: 1
+    path: Assets/Scenes/Test de Levels.unity
+    guid: fc5622c37453f374eb2503eb5451f714
   m_configObjects: {}

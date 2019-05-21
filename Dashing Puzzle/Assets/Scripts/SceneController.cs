@@ -32,7 +32,7 @@ public class SceneController : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Entrei 2");
-        SceneManager.LoadScene("Game Scene");
+        SceneManager.LoadScene("Test de Levels");
     }
 
     public void CharacterSeletion()
@@ -47,5 +47,10 @@ public class SceneController : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void TesteDeLevels()
+    {
+        SceneManager.LoadScene("Test de Levels");
     }
 }
