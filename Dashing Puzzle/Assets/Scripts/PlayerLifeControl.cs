@@ -28,7 +28,8 @@ public class PlayerLifeControl : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovimentation>().enabled = false;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("death");
-        AudioDeath.PlayOneShot(AudioDeath.clip, AudioDeath.volume);
+        if(AudioDeath)
+            AudioDeath.PlayOneShot(AudioDeath.clip, AudioDeath.volume);
         yield return new WaitForSeconds(0.8f);
         gameObject.GetComponent<PlayerMovimentation>().enabled = true;
         

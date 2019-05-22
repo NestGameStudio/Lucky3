@@ -27,16 +27,18 @@ public class ChamberController : MonoBehaviour
     [HideInInspector] public GameObject currentSpawn;
     [HideInInspector] public GameObject currentCamera;
 
-    private List<Tilemap> GroundTilemaps = new List<Tilemap>();
-    private List<Tilemap> ObstaclesTilemaps = new List<Tilemap>();
-    private List<Tilemap> DoorsTilemaps = new List<Tilemap>();
-    private List<GameObject> Enemies = new List<GameObject>();
-    private List<GameObject> Spawns = new List<GameObject>();
-    private List<GameObject> Camera = new List<GameObject>();
+    private static List<Tilemap> GroundTilemaps = new List<Tilemap>();
+    private static List<Tilemap> ObstaclesTilemaps = new List<Tilemap>();
+    private static List<Tilemap> DoorsTilemaps = new List<Tilemap>();
+    private static List<GameObject> Enemies = new List<GameObject>();
+    private static List<GameObject> Spawns = new List<GameObject>();
+    private static List<GameObject> Camera = new List<GameObject>();
 
     private AudioSource AudioOpenDoor;
     private AudioSource AudioChangeLevel;
     public ParticleSystem OpenDoorAnim;
+
+    [HideInInspector] public bool WinGame = false; 
 
 
     public static ChamberController Instance { get { return instance; } }
@@ -54,29 +56,34 @@ public class ChamberController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i < ChambersInGame.Length; i++) {
+        currentChamberNumber = 0;
+        WinGame = false;
 
-            GroundTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>());
-            ObstaclesTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Obstacles").GetComponent<Tilemap>());
-            DoorsTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Doors").GetComponent<Tilemap>());
-            Enemies.Add(ChambersInGame[i].Enemies);
-            Spawns.Add(ChambersInGame[i].Spawn);
-            Camera.Add(ChambersInGame[i].Camera);
+        // if ChambersInGame == 0 -> está na tela de menu
+        if (ChambersInGame.Length != 0)
+        {
+            for (int i = 0; i < ChambersInGame.Length; i++)
+            {
 
+                GroundTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>());
+                ObstaclesTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Obstacles").GetComponent<Tilemap>());
+                DoorsTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Doors").GetComponent<Tilemap>());
+                Enemies.Add(ChambersInGame[i].Enemies);
+                Spawns.Add(ChambersInGame[i].Spawn);
+                Camera.Add(ChambersInGame[i].Camera);
+
+            }
+
+            currentGroundTilemap = GroundTilemaps[currentChamberNumber];
+            currentObstaclesTilemap = ObstaclesTilemaps[currentChamberNumber];
+            currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
+            currentEnemies = Enemies[currentChamberNumber];
+            currentSpawn = Spawns[currentChamberNumber];
+            currentCamera = Camera[currentChamberNumber];
+
+            LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
         }
-
-        currentGroundTilemap = GroundTilemaps[currentChamberNumber];
-        currentObstaclesTilemap = ObstaclesTilemaps[currentChamberNumber];
-        currentDoorTilemap = DoorsTilemaps[currentChamberNumber];
-        currentEnemies = Enemies[currentChamberNumber];
-        currentSpawn = Spawns[currentChamberNumber];
-        currentCamera = Camera[currentChamberNumber];
-
-        LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
-
-        // O problem aqui é que ele só não encontra a posicão x np tilemapDoor na grid
-        // Size != cell Bounds
-
+        
     }
 
     // Troca a camera ativa, posiciona o player no próximo spawn
@@ -90,6 +97,7 @@ public class ChamberController : MonoBehaviour
         if (currentChamberNumber + 1 > ChambersInGame.Length)
         {
             SceneController.Instance.LoadWinScene();
+            WinGame = true;
             return;
         }
 

@@ -147,13 +147,10 @@ public class PlayerMovimentation : MonoBehaviour
 
             // ele anda triga durante o caminho e no final quando termina de andar ele brilha onde tinha que ter brilhado antes
             if (PlayParticleOnce) {
-                /*if (locationInfloorPlayerCellPosition != currentPlayerCellPosition) {
-                   // Debug.Log("ta triggando particulazinha");
-                    floorParticle.transform.position = Ground.GetCellCenterWorld(locationInfloorPlayerCellPosition);
-                    floorParticle.Play();
-                }*/
+
                 dashParticle.Play();
-                AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
+                if (AudioDash)
+                    AudioDash.PlayOneShot(AudioDash.clip, AudioDash.volume);
                 PlayParticleOnce = false;
             }
 
@@ -210,7 +207,8 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 if (ChamberController.Instance.doorIsOpen) {
                     ChamberController.Instance.ChangeChamber();
-                    updateChamber();
+                    if (!ChamberController.Instance.WinGame)
+                        updateChamber();
                     playerChangedLevel = true;
                 }
 
@@ -223,7 +221,8 @@ public class PlayerMovimentation : MonoBehaviour
 
             if (CheckIfPlayerKilledEnemy(dir, false)) {   // tem inimigo 1 tile a frente - kill
                 // Kill
-                AudioEnemyDeath.PlayOneShot(AudioEnemyDeath.clip,AudioEnemyDeath.volume);
+                if(AudioEnemyDeath)
+                    AudioEnemyDeath.PlayOneShot(AudioEnemyDeath.clip,AudioEnemyDeath.volume);
             } /*else if (CheckIfEnemyKilledPlayer(dir + dir, false))  {   // tem inimigo 1 tile a frente - dead
                 return 0;
             }*/
@@ -232,7 +231,8 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 if (ChamberController.Instance.doorIsOpen) {
                     ChamberController.Instance.ChangeChamber();
-                    updateChamber();
+                    if (!ChamberController.Instance.WinGame)
+                        updateChamber();
                     playerChangedLevel = true;
                 }
 
@@ -242,7 +242,8 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 if (ChamberController.Instance.doorIsOpen) {
                     ChamberController.Instance.ChangeChamber();
-                    updateChamber();
+                    if (!ChamberController.Instance.WinGame)
+                        updateChamber();
                     playerChangedLevel = true;
 
                 }

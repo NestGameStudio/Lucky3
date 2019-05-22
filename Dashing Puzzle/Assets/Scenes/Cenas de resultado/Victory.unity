@@ -676,6 +676,11 @@ PrefabInstance:
       propertyPath: SecondsToCompletion
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: ChambersInGame.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!114 &929958876 stripped

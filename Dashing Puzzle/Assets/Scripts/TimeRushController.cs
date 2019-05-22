@@ -22,7 +22,8 @@ public class TimeRushController : MonoBehaviour
             instance = this;
         }
 
-        StartCoroutine(FillTheBar());
+        if (LittleBar)
+            StartCoroutine(FillTheBar());
     }
 
     // Percentage of player completion within the map
