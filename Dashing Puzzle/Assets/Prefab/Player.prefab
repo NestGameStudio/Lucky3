@@ -10311,6 +10311,7 @@ MonoBehaviour:
   Velocity: 15
   dashParticle: {fileID: 2042265307}
   floorParticle: {fileID: 625053374}
+  playerWalkAnimator: {fileID: 1360268561}
   AudioDash: {fileID: 706644177}
   AudioEnemyDeath: {fileID: 1703254558}
 --- !u!114 &8205448450201892692
