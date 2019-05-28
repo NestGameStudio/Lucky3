@@ -137,7 +137,10 @@ public class PlayerMovimentation : MonoBehaviour
             // ele anda triga durante o caminho e no final quando termina de andar ele brilha onde tinha que ter brilhado antes
             if (PlayParticleOnce) {
 
-                playerWalkAnimator.SetTrigger("Trigger");
+                if (playerWalkAnimator)
+                {
+                    playerWalkAnimator.SetTrigger("Trigger");
+                }
 
                 dashParticle.Play();
                 if (AudioDash)
