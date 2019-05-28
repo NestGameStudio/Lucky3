@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  SecondsToCompletion: 180
+  SecondsToCompletion: 300
 --- !u!114 &1019013962
 MonoBehaviour:
   m_ObjectHideFlags: 0
