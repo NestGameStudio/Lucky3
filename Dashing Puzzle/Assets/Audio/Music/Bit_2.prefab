@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5377027863121819171}
   - component: {fileID: 5377027863121819228}
   - component: {fileID: 5377027863121819170}
+  - component: {fileID: 1822730970135086965}
   m_Layer: 0
   m_Name: Bit_2
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5377027863121819229}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -136,10 +137,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5377027863121819229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4080bfeb0e7da44f9c8fc4151b8ac9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minPitch: 1
   maxPitch: 2
+--- !u!114 &1822730970135086965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377027863121819229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ec2d1cef89144f99641a4387b1523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
