@@ -37,6 +37,9 @@ public class ChamberController : MonoBehaviour
     private AudioSource AudioOpenDoor;
     private AudioSource AudioChangeLevel;
     public ParticleSystem OpenDoorAnim;
+    public ParticleSystem OpenDoorAnim2;
+    public ParticleSystem OpenDoorAnim3;
+    public ParticleSystem OpenDoorAnim4;
 
     private bool JumpAllLevels = false;
 
@@ -171,6 +174,15 @@ public class ChamberController : MonoBehaviour
                 {
                     OpenDoorAnim.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
                     OpenDoorAnim.Play();
+
+                    OpenDoorAnim2.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
+                    OpenDoorAnim2.Play();
+
+                    OpenDoorAnim3.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
+                    OpenDoorAnim3.Play();
+
+                    OpenDoorAnim4.transform.position = DoorsTilemaps[currentChamberNumber].GetCellCenterWorld(localPlace);
+                    OpenDoorAnim4.Play();
 
                     AudioOpenDoor = GameObject.Find("Open Door Audio").GetComponent<AudioSource>();
                     AudioOpenDoor.PlayOneShot(AudioOpenDoor.clip,AudioOpenDoor.volume);
