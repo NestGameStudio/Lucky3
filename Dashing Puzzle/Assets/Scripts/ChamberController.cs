@@ -38,6 +38,8 @@ public class ChamberController : MonoBehaviour
     private AudioSource AudioChangeLevel;
     public ParticleSystem OpenDoorAnim;
 
+    private bool JumpAllLevels = false;
+
     [HideInInspector] public bool WinGame = false; 
 
 
@@ -56,6 +58,7 @@ public class ChamberController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        JumpAllLevels = false;
         currentChamberNumber = 0;
         WinGame = false;
 
@@ -86,13 +89,29 @@ public class ChamberController : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            JumpAllLevels = true;
+        }
+    }
+
     // Troca a camera ativa, posiciona o player no próximo spawn
     // Muda todo o current Chamber
 
     public void ChangeChamber()
     {
         // Atualiza o current Chamber
-        currentChamberNumber += 1;
+        if (!JumpAllLevels)
+        {
+            currentChamberNumber += 1;
+        }
+        else
+        {
+            currentChamberNumber = ChambersInGame.Length - 2;
+            JumpAllLevels = false;
+        }
 
         if (currentChamberNumber + 1 > ChambersInGame.Length)
         {
