@@ -30,9 +30,7 @@ public class SceneController : MonoBehaviour
     }
 
     public void StartGame()
-    {
-        //ChamberController.Instance.currentChamberNumber = 0;
-        //ChamberController.Instance.WinGame = false;
+    { 
         SceneManager.LoadScene("Test de Levels");
     }
 
@@ -53,5 +51,10 @@ public class SceneController : MonoBehaviour
     public void TesteDeLevels()
     {
         SceneManager.LoadScene("Test de Levels");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

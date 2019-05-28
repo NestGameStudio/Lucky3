@@ -67,7 +67,8 @@ public class ChamberController : MonoBehaviour
         {
             for (int i = 0; i < ChambersInGame.Length; i++)
             {
-
+                Debug.Log("O que tá dando errado? " + i);
+                Debug.Log("Mano por que essa merda para de recolocar depois do 15???");
                 GroundTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>());
                 ObstaclesTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Obstacles").GetComponent<Tilemap>());
                 DoorsTilemaps.Add(ChambersInGame[i].ChamberGrid.transform.Find("Tilemap-Doors").GetComponent<Tilemap>());
