@@ -17,6 +17,7 @@ public class ChamberController : MonoBehaviour
     public TileBase OpenDoorAssetDown;
     public GameObject Cam;
     public Text LevelText;
+    public Text DeathCounterText;
 
     [HideInInspector] public bool doorIsOpen = false;
     [HideInInspector] public int currentChamberNumber = 0;
@@ -40,6 +41,8 @@ public class ChamberController : MonoBehaviour
     public ParticleSystem OpenDoorAnim2;
     public ParticleSystem OpenDoorAnim3;
     public ParticleSystem OpenDoorAnim4;
+
+    [HideInInspector] public int DeathCounter = 0;
 
     private bool JumpAllLevels = false;
 
@@ -87,6 +90,7 @@ public class ChamberController : MonoBehaviour
             currentCamera = Camera[currentChamberNumber];
 
             LevelText.text = "Level " + (currentChamberNumber + 1) + "/ " + (ChambersInGame.Length);
+            DeathCounterText.text = "Death Counter: " + DeathCounter;
         }
         
     }

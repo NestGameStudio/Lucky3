@@ -145,7 +145,7 @@ public class PlayerMovimentation : MonoBehaviour
 
                     SpriteRenderer spriteR = playerGraphic.GetComponent<SpriteRenderer>();
 
-                    if (newPos == Vector3Int.left) {    // flip x
+                    if (newPos == Vector3Int.left) {
                         spriteR.flipX = true;
                     } else if (newPos == Vector3Int.right) {
                         spriteR.flipX = false;
@@ -320,7 +320,8 @@ public class PlayerMovimentation : MonoBehaviour
         while (Ground.WorldToCell(this.transform.position) != currentPlayerCellPosition) {
             yield return new WaitForEndOfFrame();
         }
-
+        ChamberController.instance.DeathCounter += 1;
+        ChamberController.instance.DeathCounterText.text = "Death Counter: " + ChamberController.instance.DeathCounter;
         this.GetComponent<PlayerLifeControl>().KillPlayer();
     }
 

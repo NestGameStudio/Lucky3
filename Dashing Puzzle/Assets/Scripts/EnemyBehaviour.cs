@@ -23,6 +23,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
 
+        enemyDieAnimator = this.GetComponent<Animator>();
+
         foreach (Chambers chamber in ChamberController.Instance.ChambersInGame) {
 
             Tilemap levelGround = chamber.ChamberGrid.transform.Find("Tilemap-Ground").GetComponent<Tilemap>();
