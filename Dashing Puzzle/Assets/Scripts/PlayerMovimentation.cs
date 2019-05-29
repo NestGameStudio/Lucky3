@@ -32,6 +32,7 @@ public class PlayerMovimentation : MonoBehaviour
     public ParticleSystem floorParticle;
 
     public Animator playerWalkAnimator;
+    private GameObject playerGraphic;
 
     public AudioSource AudioDash;
     public AudioSource AudioEnemyDeath;
@@ -50,6 +51,7 @@ public class PlayerMovimentation : MonoBehaviour
         Spawn = ChamberController.Instance.currentSpawn;
 
         playerRB = this.GetComponent<Rigidbody2D>();
+        playerGraphic = this.transform.Find("Graphics").gameObject;
 
         // Inicia o jogador na posição de spawn
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
@@ -140,6 +142,22 @@ public class PlayerMovimentation : MonoBehaviour
                 if (playerWalkAnimator)
                 {
                     playerWalkAnimator.SetTrigger("Trigger");
+                    SpriteRenderer spriteR = playerGraphic.GetComponent<SpriteRenderer>();
+
+                    if (newPos == Vector3Int.left) {    // flip x
+                        //spriteR.flipX = true;
+                    } else if (newPos == Vector3Int.down)
+                    {
+
+                    } else if (newPos == Vector3Int.up)
+                    {
+                        spriteR.flipY = true;
+                    }
+
+
+
+                    // pegar a direcao que ele andaa e flipar o asset do sprite renderer
+
                 }
 
                 dashParticle.Play();
@@ -271,7 +289,7 @@ public class PlayerMovimentation : MonoBehaviour
         {
             if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf && !enemy.GetComponent<EnemyBehaviour>().hasMovement && !movingEnemies) {        // tem inimigo 1 tile a frente - kill
 
-                enemy.gameObject.SetActive(false);
+                enemy.GetComponent<EnemyBehaviour>().InitiateEnemyDieAnimation();
                 ChamberController.Instance.CheckIfCanOpenDoor();
                 return true;
 
@@ -279,7 +297,7 @@ public class PlayerMovimentation : MonoBehaviour
             {
                 if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition - direction))
                 {
-                    enemy.gameObject.SetActive(false);
+                    enemy.GetComponent<EnemyBehaviour>().InitiateEnemyDieAnimation();
                     ChamberController.Instance.CheckIfCanOpenDoor();
                     return true;
                 }

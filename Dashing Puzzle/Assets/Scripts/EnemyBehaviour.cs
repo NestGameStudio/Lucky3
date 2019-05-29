@@ -14,6 +14,8 @@ public class EnemyBehaviour : MonoBehaviour
     private Tilemap Ground;
     private Vector3Int currentEnemyPositionInCell;
 
+    public Animator enemyDieAnimator;
+
     private Vector3Int nextPosition;
     [HideInInspector] public bool isInDesiredPosition = false;
 
@@ -38,6 +40,12 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
 
+    }
+
+    public void InitiateEnemyDieAnimation()
+    {
+        enemyDieAnimator.SetTrigger("Death");
+        this.gameObject.SetActive(false);
     }
 
 
