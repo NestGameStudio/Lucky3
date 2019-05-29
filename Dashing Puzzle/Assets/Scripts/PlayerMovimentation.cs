@@ -142,22 +142,14 @@ public class PlayerMovimentation : MonoBehaviour
                 if (playerWalkAnimator)
                 {
                     playerWalkAnimator.SetTrigger("Trigger");
+
                     SpriteRenderer spriteR = playerGraphic.GetComponent<SpriteRenderer>();
 
                     if (newPos == Vector3Int.left) {    // flip x
-                        //spriteR.flipX = true;
-                    } else if (newPos == Vector3Int.down)
-                    {
-
-                    } else if (newPos == Vector3Int.up)
-                    {
-                        spriteR.flipY = true;
+                        spriteR.flipX = true;
+                    } else if (newPos == Vector3Int.right) {
+                        spriteR.flipX = false;
                     }
-
-
-
-                    // pegar a direcao que ele andaa e flipar o asset do sprite renderer
-
                 }
 
                 dashParticle.Play();
