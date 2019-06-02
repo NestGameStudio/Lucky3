@@ -37,6 +37,9 @@ public class PlayerMovimentation : MonoBehaviour
     public AudioSource AudioDash;
     public AudioSource AudioEnemyDeath;
 
+    public TrailRenderer DashTrail;
+    public ParticleSystem DashParticle;
+
     private bool MoveEnemyOnce = false;
     private bool PlayParticleOnce = false;
     private bool FazUmaVezSoCarai = false;
@@ -237,6 +240,7 @@ public class PlayerMovimentation : MonoBehaviour
                     ChamberController.Instance.ChangeChamber();
                     if (!ChamberController.Instance.WinGame)
                         updateChamber();
+                    StartCoroutine(DashGone());
                     playerChangedLevel = true;
                 }
 
@@ -308,6 +312,7 @@ public class PlayerMovimentation : MonoBehaviour
         Spawn = ChamberController.Instance.currentSpawn;
 
         // Inicia o jogador na posição de spawn
+        
         spawnCellPosition = Ground.WorldToCell(Spawn.transform.position);
         this.transform.position = Ground.GetCellCenterWorld(spawnCellPosition);
         currentPlayerCellPosition = Ground.WorldToCell(this.transform.position);
@@ -324,5 +329,10 @@ public class PlayerMovimentation : MonoBehaviour
         ChamberController.instance.DeathCounterText.text = "Death Counter: " + ChamberController.instance.DeathCounter;
         this.GetComponent<PlayerLifeControl>().KillPlayer();
     }
-
+    IEnumerator DashGone() {
+        //DashParticle.Clear();
+        DashTrail.enabled = false;
+        yield return new WaitForSeconds(0.4f);
+        DashTrail.enabled = true;
+    }
 }

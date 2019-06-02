@@ -10314,6 +10314,8 @@ MonoBehaviour:
   playerWalkAnimator: {fileID: 1360268561}
   AudioDash: {fileID: 706644177}
   AudioEnemyDeath: {fileID: 1703254558}
+  DashTrail: {fileID: 1851358597}
+  DashParticle: {fileID: 2042265307}
 --- !u!114 &8205448450201892692
 MonoBehaviour:
   m_ObjectHideFlags: 0
