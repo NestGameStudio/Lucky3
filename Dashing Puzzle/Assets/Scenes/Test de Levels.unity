@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -43239,11 +43239,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1497405543942044371, guid: c845f0bafff084bf4ae1e69737d1bad1,
-        type: 3}
-      propertyPath: DashTrail
-      value: 
-      objectReference: {fileID: 2073015046}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c845f0bafff084bf4ae1e69737d1bad1, type: 3}
 --- !u!1001 &536997729
@@ -91355,12 +91350,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a93d9967d0c3ee429400e7c0bfd305d, type: 3}
---- !u!96 &2073015046 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 1851358597, guid: c845f0bafff084bf4ae1e69737d1bad1,
-    type: 3}
-  m_PrefabInstance: {fileID: 531847248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084964112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1089858281342625807, guid: f38c0286524d67545915938e0605e765,
