@@ -36,6 +36,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     public AudioSource AudioDash;
     public AudioSource AudioEnemyDeath;
+    public AudioSource AudioObstacle;
 
     public TrailRenderer DashTrail;
     public ParticleSystem DashParticle;
@@ -179,11 +180,11 @@ public class PlayerMovimentation : MonoBehaviour
             if (FazUmaVezSoCarai)
             {
                 if (!CheckIfEnemyKilledPlayer(Vector3.zero, true)) {
-
+                    Debug.Log("entrei aqui?");
                     // tem que pegar a direção dessa desgraça
                     CheckIfPlayerKilledEnemy(newPos, true);
                 }
-                CheckIfEnemyKilledPlayer(Vector3.zero, false);
+                //CheckIfEnemyKilledPlayer(Vector3.zero, false);
                 FazUmaVezSoCarai = false;
             }
            
@@ -203,6 +204,8 @@ public class PlayerMovimentation : MonoBehaviour
         playerChangedLevel = false;
 
         if (Obstacles.HasTile(currentPlayerCellPosition + dir)) {                      // tem obstaculos 1 tiles a frente
+            if (AudioObstacle)
+                AudioObstacle.Play();
             return 0;
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
 
@@ -221,6 +224,9 @@ public class PlayerMovimentation : MonoBehaviour
 
                 return 0;
             }
+
+            if (AudioObstacle)
+                AudioObstacle.Play();
 
             return 1;
 
@@ -267,8 +273,8 @@ public class PlayerMovimentation : MonoBehaviour
     {
         foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>())
         {
+            Debug.Log("num era pra ta rodando 4 vez");
             if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
-
                 if (!enemy.GetComponent<EnemyBehaviour>().hasMovement || (enemy.GetComponent<EnemyBehaviour>().hasMovement && movingEnemies)) {
                     StartCoroutine(WaitUntilKillPlayer());
                     return true;
