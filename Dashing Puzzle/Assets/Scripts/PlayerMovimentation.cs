@@ -180,7 +180,6 @@ public class PlayerMovimentation : MonoBehaviour
             if (FazUmaVezSoCarai)
             {
                 if (!CheckIfEnemyKilledPlayer(Vector3.zero, true)) {
-                    Debug.Log("entrei aqui?");
                     // tem que pegar a direção dessa desgraça
                     CheckIfPlayerKilledEnemy(newPos, true);
                 }
@@ -273,7 +272,6 @@ public class PlayerMovimentation : MonoBehaviour
     {
         foreach (Transform enemy in Enemies.GetComponentInChildren<Transform>())
         {
-            Debug.Log("num era pra ta rodando 4 vez");
             if ((Ground.WorldToCell(enemy.position) == currentPlayerCellPosition + direction) && enemy.gameObject.activeSelf) {        // tem inimigo 1 tile a frente - dead
                 if (!enemy.GetComponent<EnemyBehaviour>().hasMovement || (enemy.GetComponent<EnemyBehaviour>().hasMovement && movingEnemies)) {
                     StartCoroutine(WaitUntilKillPlayer());

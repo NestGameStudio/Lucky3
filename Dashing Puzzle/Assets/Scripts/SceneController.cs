@@ -48,9 +48,14 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void TesteDeLevels()
+    /*public void TesteDeLevels()
     {
         SceneManager.LoadScene("Test de Levels");
+    }*/
+
+    public void HighScore()
+    {
+        SceneManager.LoadScene("Highscore");
     }
 
     public void ExitGame()
