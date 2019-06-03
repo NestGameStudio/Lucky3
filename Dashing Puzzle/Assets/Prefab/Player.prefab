@@ -10315,7 +10315,7 @@ MonoBehaviour:
   AudioDash: {fileID: 706644177}
   AudioEnemyDeath: {fileID: 1703254558}
   DashTrail: {fileID: 1851358597}
-  DashParticle: {fileID: 2042265307}
+  DashParticle: {fileID: 1828342869}
 --- !u!114 &8205448450201892692
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -336,7 +336,7 @@ public class PlayerMovimentation : MonoBehaviour
         this.GetComponent<PlayerLifeControl>().KillPlayer();
     }
     IEnumerator DashGone() {
-        //DashParticle.Clear();
+        DashParticle.Clear();
         DashTrail.enabled = false;
         yield return new WaitForSeconds(0.4f);
         DashTrail.enabled = true;
