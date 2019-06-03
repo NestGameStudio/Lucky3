@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test de Levels.unity
     guid: fc5622c37453f374eb2503eb5451f714
+  - enabled: 1
+    path: Assets/Scenes/Highscore.unity
+    guid: f7bf15f6cf04d43faa27168b885bb7e2
   m_configObjects: {}
