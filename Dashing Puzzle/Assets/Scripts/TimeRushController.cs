@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TimeRushController : MonoBehaviour
 {
-    public static TimeRushController instance;
+    private static TimeRushController instance;
 
     public Slider LittleBar;
     public float SecondsToCompletion = 60;
