@@ -78717,6 +78717,11 @@ PrefabInstance:
       propertyPath: DeathCounterText
       value: 
       objectReference: {fileID: 7642031263376671218}
+    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: mainMusic
+      value: 
+      objectReference: {fileID: 753511940}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!1001 &1683716636

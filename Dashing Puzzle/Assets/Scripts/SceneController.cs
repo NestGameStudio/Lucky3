@@ -9,7 +9,6 @@ public class SceneController : MonoBehaviour
 
     public static SceneController Instance { get { return instance; } }
 
-
     private void Awake() {
 
         if (instance != null && instance != this) {
