@@ -217,10 +217,11 @@ AudioSource:
   m_GameObject: {fileID: 255934050}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 574bef1f40dcdbf448a1403b35706e7e,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: ee1d9012a4d3c8448b41428505420491, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.27
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10171,6 +10172,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588883168}
   m_CullTransparentMesh: 0
+--- !u!198 &600732239 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1576124317, guid: 34e08c4b8a126b24a9f4bc3586403692,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021522030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &645159453
 GameObject:
   m_ObjectHideFlags: 0
@@ -14951,13 +14958,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 114
-    m_Alignment: 6
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: in development (duh) - v0.9
+  m_Text: V1.0
 --- !u!222 &763763454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15049,6 +15056,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1021522031}
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600732239}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20128,17 +20146,17 @@ PrefabInstance:
     - target: {fileID: 6690567784400442108, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4131788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6690567784400442108, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.59754187
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6690567784400442108, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1015625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6690567784400442108, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
@@ -20178,16 +20196,6 @@ PrefabInstance:
     - target: {fileID: 6690567784400442108, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: SecondsToCompletion
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: ChambersInGame.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

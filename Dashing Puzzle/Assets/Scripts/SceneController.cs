@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
 
     public static SceneController Instance { get { return instance; } }
+
+    public AudioMixerSnapshot AudioMixerSnapshot;
 
     private void Awake() {
 
@@ -29,8 +32,8 @@ public class SceneController : MonoBehaviour
     }
 
     public void StartGame()
-    { 
-        SceneManager.LoadScene("Test de Levels");
+    {
+        StartCoroutine(DelayStart(1f));
     }
 
     public void CharacterSeletion()
@@ -60,5 +63,11 @@ public class SceneController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    IEnumerator DelayStart(float seconds)
+    {
+        AudioMixerSnapshot.TransitionTo(seconds);
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("Test de Levels");
     }
 }
