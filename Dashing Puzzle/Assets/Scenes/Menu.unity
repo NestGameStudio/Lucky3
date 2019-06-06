@@ -10253,6 +10253,27 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 1021522030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &607355530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5582615830111219522, guid: 34e08c4b8a126b24a9f4bc3586403692,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021522030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &607355535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607355530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3526ef876f5f16488997a228cc654d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 574bef1f40dcdbf448a1403b35706e7e, type: 2}
+  slider: {fileID: 1730484584}
+  SlideLastValue: 0
 --- !u!1 &645159453
 GameObject:
   m_ObjectHideFlags: 0
@@ -20419,6 +20440,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 574bef1f40dcdbf448a1403b35706e7e,
+        type: 2}
+    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: VolumeSlider
+      value: 
+      objectReference: {fileID: 1730484582}
+    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: snapshot
+      value: 
+      objectReference: {fileID: 245564619155495398, guid: 574bef1f40dcdbf448a1403b35706e7e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!114 &1021522031 stripped
@@ -20427,7 +20465,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1021522030}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 607355530}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c5e1df2350834abb95a8c83c1cf692e, type: 3}
@@ -31011,7 +31049,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1730484583}
   - component: {fileID: 1730484584}
-  - component: {fileID: 1730484585}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -31088,23 +31125,20 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 607355535}
+        m_MethodName: LastChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1730484585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730484582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3526ef876f5f16488997a228cc654d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 574bef1f40dcdbf448a1403b35706e7e, type: 2}
-  slider: {fileID: 1730484584}
 --- !u!1 &2036606959
 GameObject:
   m_ObjectHideFlags: 0

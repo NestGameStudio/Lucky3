@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -10,16 +11,40 @@ public class SceneController : MonoBehaviour
 
     public static SceneController Instance { get { return instance; } }
 
-    public AudioMixerSnapshot AudioMixerSnapshot;
+    public AudioMixer mixer;
+
+    public GameObject VolumeSlider;
+
+    public AudioMixerSnapshot snapshot;
+
+    public bool fadeOut = false;
+    float volumeDown = 1;
+    //public float seconds = 1;
 
     private void Awake() {
-
+        Debug.Log(VolumeSlider.GetComponent<Slider>().value - volumeDown);
         if (instance != null && instance != this) {
             Destroy(this.gameObject);
         } else {
             instance = this;
         }
-    }
+        
+    }/*
+    public void Update()
+    {
+        if (fadeOut)
+        {
+
+            volumeDown -= 100f * Time.deltaTime;
+
+            mixer.SetFloat("Volume", VolumeSlider.GetComponent<Slider>().value - volumeDown);
+            if (VolumeSlider.GetComponent<Slider>().value - volumeDown == -50)
+            {
+                fadeOut = false;
+                mixer.SetFloat("Volume", VolumeSlider.GetComponent<VolumeSlider>().SlideLastValue);
+            }
+        }
+    }*/
 
     public void LoadLoseScene()
     {
@@ -33,7 +58,7 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(DelayStart(1f));
+        StartCoroutine(DelayStart(1.5f));
     }
 
     public void CharacterSeletion()
@@ -64,10 +89,12 @@ public class SceneController : MonoBehaviour
     {
         Application.Quit();
     }
-    IEnumerator DelayStart(float seconds)
+    public  IEnumerator DelayStart(float seconds)
     {
-        AudioMixerSnapshot.TransitionTo(seconds);
-        yield return new WaitForSeconds(seconds);
+        fadeOut = true;
+        Destroy(VolumeSlider);
+        snapshot.TransitionTo(seconds - 0.3f);
+        yield return new WaitForSeconds(seconds);       
         SceneManager.LoadScene("Test de Levels");
     }
 }
