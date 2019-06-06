@@ -245,7 +245,7 @@ public class PlayerMovimentation : MonoBehaviour
                     ChamberController.Instance.ChangeChamber();
                     if (!ChamberController.Instance.WinGame)
                         updateChamber();
-                    StartCoroutine(DashGone());
+                    //StartCoroutine(DashGone());
                     playerChangedLevel = true;
                 }
 
