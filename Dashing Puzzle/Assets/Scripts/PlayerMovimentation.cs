@@ -40,6 +40,7 @@ public class PlayerMovimentation : MonoBehaviour
 
     public TrailRenderer DashTrail;
     public ParticleSystem DashParticle;
+    public ParticleSystem ObstacleParticle;
 
     private bool MoveEnemyOnce = false;
     private bool PlayParticleOnce = false;
@@ -205,6 +206,8 @@ public class PlayerMovimentation : MonoBehaviour
         if (Obstacles.HasTile(currentPlayerCellPosition + dir)) {                      // tem obstaculos 1 tiles a frente
             if (AudioObstacle)
                 AudioObstacle.Play();
+            if (ObstacleParticle)
+                ObstacleParticle.Play();
             return 0;
         } else if (Obstacles.HasTile(currentPlayerCellPosition + dir + dir)) {         // tem obstaculos 1 tiles a frente
 
@@ -226,6 +229,8 @@ public class PlayerMovimentation : MonoBehaviour
 
             if (AudioObstacle)
                 AudioObstacle.Play();
+            if (ObstacleParticle)
+                ObstacleParticle.Play();
 
             return 1;
 
