@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 270089749}
   - component: {fileID: 270089750}
   - component: {fileID: 5466964165096059977}
+  - component: {fileID: 467102031}
   m_Layer: 0
   m_Name: Collide Wall Audio
   m_TagString: Untagged
@@ -105,8 +106,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9e0c6bed59dc73e44ab39c85a7fed062, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 0.25
+  m_Volume: 0.08
+  m_Pitch: 0.12
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -197,7 +198,30 @@ AudioDistortionFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270089748}
   m_Enabled: 1
-  m_DistortionLevel: 0.65
+  m_DistortionLevel: 0.95
+--- !u!164 &467102031
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270089748}
+  m_Enabled: 0
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
 --- !u!1 &625053373
 GameObject:
   m_ObjectHideFlags: 0
