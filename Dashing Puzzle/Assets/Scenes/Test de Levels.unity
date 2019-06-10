@@ -68181,7 +68181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: 232.1}
+  m_AnchoredPosition: {x: 41, y: 202}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582974338
@@ -71361,11 +71361,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
+    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
-      propertyPath: LittleBar
+      propertyPath: mainMusic
       value: 
-      objectReference: {fileID: 1705701739}
+      objectReference: {fileID: 753511940}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.size
@@ -72186,11 +72186,11 @@ PrefabInstance:
       propertyPath: ChambersInGame.Array.data[39].Camera
       value: 
       objectReference: {fileID: 1368982673}
-    - target: {fileID: 5384924436865041506, guid: 34e08c4b8a126b24a9f4bc3586403692,
+    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
-      propertyPath: mainMusic
+      propertyPath: LittleBar
       value: 
-      objectReference: {fileID: 753511940}
+      objectReference: {fileID: 1705701739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
 --- !u!1001 &1683716636
