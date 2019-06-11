@@ -14910,7 +14910,7 @@ ParticleSystem:
   m_GameObject: {fileID: 836571801}
   serializedVersion: 6
   lengthInSec: 0.2
-  simulationSpeed: 1
+  simulationSpeed: 0.4
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -19696,15 +19696,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
-        type: 3}
-      propertyPath: SecondsToCompletion
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 2332597343454055898, guid: 34e08c4b8a126b24a9f4bc3586403692,
         type: 3}
       propertyPath: ChambersInGame.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097982577833533751, guid: 34e08c4b8a126b24a9f4bc3586403692,
+        type: 3}
+      propertyPath: SecondsToCompletion
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e08c4b8a126b24a9f4bc3586403692, type: 3}
